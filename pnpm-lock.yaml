@@ -34,13 +34,13 @@ importers:
         version: 10.1.1
       jotai:
         specifier: ^2.9.3
-        version: 2.11.0(@types/react@18.3.18)(react@18.3.1)
+        version: 2.11.1(@types/react@18.3.18)(react@18.3.1)
       jotai-devtools:
         specifier: ^0.10.1
         version: 0.10.1(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)
       jotai-immer:
         specifier: ^0.4.1
-        version: 0.4.1(immer@10.1.1)(jotai@2.11.0(@types/react@18.3.18)(react@18.3.1))
+        version: 0.4.1(immer@10.1.1)(jotai@2.11.1(@types/react@18.3.18)(react@18.3.1))
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -2142,8 +2142,8 @@ packages:
   caniuse-lite@1.0.30001680:
     resolution: {integrity: sha512-rPQy70G6AGUMnbwS1z6Xg+RkHYPAi18ihs47GH0jcxIG7wArmPgY3XbS2sRdBbxJljp3thdT8BIqv9ccCypiPA==}
 
-  caniuse-lite@1.0.30001692:
-    resolution: {integrity: sha512-A95VKan0kdtrsnMubMKxEKUKImOPSuCpYgxSQBo036P5YYgVIcOYJEgt/txJWqObiRQeISNCfef9nvlQ0vbV7A==}
+  caniuse-lite@1.0.30001695:
+    resolution: {integrity: sha512-vHyLade6wTgI2u1ec3WQBxv+2BrTERV28UXQu9LO6lZ9pYeMk34vjXFLOxo1A4UBA8XTL4njRQZdno/yYaSmWw==}
 
   caseless@0.12.0:
     resolution: {integrity: sha512-4tYFyifaFfGacoiObjJegolkwSU4xQNGbVgUiNYVUxbQ2x2lUsFvY4hVgVzGiIe6WLOPqycWXA40l+PWsxthUw==}
@@ -2515,8 +2515,8 @@ packages:
   electron-to-chromium@1.5.56:
     resolution: {integrity: sha512-7lXb9dAvimCFdvUMTyucD4mnIndt/xhRKFAlky0CyFogdnNmdPQNoHI23msF/2V4mpTxMzgMdjK4+YRlFlRQZw==}
 
-  electron-to-chromium@1.5.80:
-    resolution: {integrity: sha512-LTrKpW0AqIuHwmlVNV+cjFYTnXtM9K37OGhpe0ZI10ScPSxqVSryZHIY3WnCS5NSYbBODRTZyhRMS2h5FAEqAw==}
+  electron-to-chromium@1.5.83:
+    resolution: {integrity: sha512-LcUDPqSt+V0QmI47XLzZrz5OqILSMGsPFkDYus22rIbgorSvBYEFqq854ltTmUdHkY92FSdAAvsh4jWEULMdfQ==}
 
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
@@ -3566,8 +3566,8 @@ packages:
       immer: '>=9.0.0'
       jotai: '>=2.0.0'
 
-  jotai@2.11.0:
-    resolution: {integrity: sha512-zKfoBBD1uDw3rljwHkt0fWuja1B76R7CjznuBO+mSX6jpsO1EBeWNRKpeaQho9yPI/pvCv4recGfgOXGxwPZvQ==}
+  jotai@2.11.1:
+    resolution: {integrity: sha512-41Su098mpHIX29hF/XOpDb0SqF6EES7+HXfrhuBqVSzRkxX48hD5i8nGsEewWZNAsBWJCTTmuz8M946Ih2PfcQ==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=17.0.0'
@@ -7601,8 +7601,8 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001692
-      electron-to-chromium: 1.5.80
+      caniuse-lite: 1.0.30001695
+      electron-to-chromium: 1.5.83
       node-releases: 2.0.19
       update-browserslist-db: 1.1.2(browserslist@4.24.4)
 
@@ -7669,7 +7669,7 @@ snapshots:
 
   caniuse-lite@1.0.30001680: {}
 
-  caniuse-lite@1.0.30001692: {}
+  caniuse-lite@1.0.30001695: {}
 
   caseless@0.12.0: {}
 
@@ -8063,7 +8063,7 @@ snapshots:
 
   electron-to-chromium@1.5.56: {}
 
-  electron-to-chromium@1.5.80: {}
+  electron-to-chromium@1.5.83: {}
 
   emoji-regex@10.3.0: {}
 
@@ -9347,12 +9347,12 @@ snapshots:
       - react-dom
       - redux
 
-  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.11.0(@types/react@18.3.18)(react@18.3.1)):
+  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.11.1(@types/react@18.3.18)(react@18.3.1)):
     dependencies:
       immer: 10.1.1
-      jotai: 2.11.0(@types/react@18.3.18)(react@18.3.1)
+      jotai: 2.11.1(@types/react@18.3.18)(react@18.3.1)
 
-  jotai@2.11.0(@types/react@18.3.18)(react@18.3.1):
+  jotai@2.11.1(@types/react@18.3.18)(react@18.3.1):
     optionalDependencies:
       '@types/react': 18.3.18
       react: 18.3.1
