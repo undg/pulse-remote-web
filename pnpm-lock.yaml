@@ -85,8 +85,8 @@ importers:
         specifier: 0.5.9
         version: 0.5.9(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@16.18.124)(typescript@5.7.2)))
       '@testing-library/cypress':
-        specifier: 10.0.2
-        version: 10.0.2(cypress@14.0.0)
+        specifier: 10.0.3
+        version: 10.0.3(cypress@14.0.0)
       '@testing-library/dom':
         specifier: 10.4.0
         version: 10.4.0
@@ -1532,11 +1532,11 @@ packages:
     peerDependencies:
       react: ^18 || ^19
 
-  '@testing-library/cypress@10.0.2':
-    resolution: {integrity: sha512-dKv95Bre5fDmNb9tOIuWedhGUryxGu1GWYWtXDqUsDPcr9Ekld0fiTb+pcBvSsFpYXAZSpmyEjhoXzLbhh06yQ==}
+  '@testing-library/cypress@10.0.3':
+    resolution: {integrity: sha512-TeZJMCNtiS59cPWalra7LgADuufO5FtbqQBYxuAgdX6ZFAR2D9CtQwAG8VbgvFcchW3K414va/+7P4OkQ80UVg==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
-      cypress: ^12.0.0 || ^13.0.0
+      cypress: ^12.0.0 || ^13.0.0 || ^14.0.0
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -6970,9 +6970,9 @@ snapshots:
       '@tanstack/query-core': 5.64.2
       react: 18.3.1
 
-  '@testing-library/cypress@10.0.2(cypress@14.0.0)':
+  '@testing-library/cypress@10.0.3(cypress@14.0.0)':
     dependencies:
-      '@babel/runtime': 7.23.7
+      '@babel/runtime': 7.26.0
       '@testing-library/dom': 10.4.0
       cypress: 14.0.0
 
