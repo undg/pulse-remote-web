@@ -95,7 +95,7 @@
     "npm-run-all2": "7.0.2",
     "postcss": "8.4.49",
     "prettier": "3.4.2",
-    "prettier-plugin-tailwindcss": "0.6.10",
+    "prettier-plugin-tailwindcss": "0.6.11",
     "quicktype": "^23.0.170",
     "start-server-and-test": "2.0.10",
     "stylelint": "16.13.2",
