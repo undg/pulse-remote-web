@@ -98,7 +98,7 @@
     "prettier-plugin-tailwindcss": "0.6.11",
     "quicktype": "^23.0.170",
     "start-server-and-test": "2.0.10",
-    "stylelint": "16.14.0",
+    "stylelint": "16.14.1",
     "stylelint-config-standard": "36.0.1",
     "tailwindcss": "3.4.17",
     "typescript": "5.7.2",
