@@ -31,6 +31,7 @@ export const ControllerOutput: React.FC = () => {
 		<Layout header={dict.headerOutput}>
 			<section className='flex flex-col gap-6 text-xl'>
 				{vol.getStatus?.outputs?.map(output => (
+					// droppable
 					<VolumeSlider
 						key={output.id}
 						muted={output.muted}
@@ -43,6 +44,7 @@ export const ControllerOutput: React.FC = () => {
 						{vol.getStatus?.apps?.map(
 							app =>
 								app.outputId === output.id && (
+									// draggable
 									<Fragment key={app.id}>
 										<div className='relative ml-4 flex h-full items-end justify-end'>
 											<span
