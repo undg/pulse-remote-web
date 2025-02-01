@@ -40,13 +40,13 @@ importers:
         version: 10.1.1
       jotai:
         specifier: ^2.9.3
-        version: 2.11.2(@types/react@18.3.18)(react@18.3.1)
+        version: 2.11.3(@types/react@18.3.18)(react@18.3.1)
       jotai-devtools:
         specifier: ^0.10.1
         version: 0.10.1(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)
       jotai-immer:
         specifier: ^0.4.1
-        version: 0.4.1(immer@10.1.1)(jotai@2.11.2(@types/react@18.3.18)(react@18.3.1))
+        version: 0.4.1(immer@10.1.1)(jotai@2.11.3(@types/react@18.3.18)(react@18.3.1))
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -3606,8 +3606,8 @@ packages:
       immer: '>=9.0.0'
       jotai: '>=2.0.0'
 
-  jotai@2.11.2:
-    resolution: {integrity: sha512-H3xOvsdqjBJnXTvpgAWfff2y1B3wabi1iSA6FFd0FrLaM4ENsRJd+RJQtkNhY4PZgvAODa4PQhau9dheK+pUkw==}
+  jotai@2.11.3:
+    resolution: {integrity: sha512-B/PsewAQ0UOS5e2+TTWegUPQ3SCLPCjPY24LYUjfn2EorGlluTA2dFjVLgF1+xHLjK9Jit3y5mKHyMG3Xq/GZg==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
       '@types/react': '>=17.0.0'
@@ -9471,12 +9471,12 @@ snapshots:
       - react-dom
       - redux
 
-  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.11.2(@types/react@18.3.18)(react@18.3.1)):
+  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.11.3(@types/react@18.3.18)(react@18.3.1)):
     dependencies:
       immer: 10.1.1
-      jotai: 2.11.2(@types/react@18.3.18)(react@18.3.1)
+      jotai: 2.11.3(@types/react@18.3.18)(react@18.3.1)
 
-  jotai@2.11.2(@types/react@18.3.18)(react@18.3.1):
+  jotai@2.11.3(@types/react@18.3.18)(react@18.3.1):
     optionalDependencies:
       '@types/react': 18.3.18
       react: 18.3.1
