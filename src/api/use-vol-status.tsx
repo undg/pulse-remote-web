@@ -2,7 +2,7 @@ import { atom } from 'jotai'
 import { useAtomDevtools } from 'jotai-devtools'
 import { useImmerAtom } from 'jotai-immer'
 import { useEffect } from 'react'
-import type { GetWsMessage } from './types'
+import type { IncomingMessage } from './types'
 import { useWebSocketApi } from './use-web-socket-api'
 import { PrapiStatus } from '../generated/status'
 
@@ -19,10 +19,10 @@ export const useVolumeStatus = () => {
 	// It updates status when backend server broadcasts new state
 	useEffect(() => {
 		if (lastMessage && typeof lastMessage.data === 'string') {
-			const incomeMessage = JSON.parse(lastMessage.data) as GetWsMessage
+			const incomingMessage = JSON.parse(lastMessage.data) as IncomingMessage
 			updateVolStatus(draft => {
-				if (incomeMessage.action === 'GetStatus' && Boolean(incomeMessage.payload)) {
-					return incomeMessage.payload
+				if (incomingMessage.action === 'GetStatus' && Boolean(incomingMessage.payload)) {
+					return incomingMessage.payload
 				}
 				return draft
 			})
