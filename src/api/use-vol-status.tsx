@@ -75,6 +75,29 @@ export const useVolumeStatus = () => {
 		}
 	}
 
+	const setSource = (name: string, volume: number) => {
+		function optimistic() {
+			updateVolStatus(draft => {
+				const source = draft?.sources?.find(s => s.name === name)
+				if (source) {
+					source.volume = volume
+				}
+			})
+		}
+
+		function send() {
+			sendMessage({
+				action: 'SetSourceVolume',
+				payload: { name, volume },
+			})
+		}
+
+		return {
+			optimistic,
+			send,
+		}
+	}
+
 	const toggleSinkMute = (name: string) => {
 		updateVolStatus(draft => {
 			const sink = draft?.outputs?.find(s => s.name === name)
@@ -96,5 +119,5 @@ export const useVolumeStatus = () => {
 		})
 	}
 
-	return { getStatus: volStatus, setSink, setSinkInput, toggleSinkMute, toggleSinkInputMute }
+	return { getStatus: volStatus, setSink, setSinkInput, toggleSinkMute, toggleSinkInputMute, setSource }
 }

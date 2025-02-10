@@ -12,8 +12,16 @@ export type IncomingMessage = {
 	error?: string
 }
 
+// @TODO (undg) 2025-02-10: generate it from go-prapi/json/json.go `AvailableCommands`
 /** Message send to the server via websocket */
 export type Message =
+	// Get composed informations about all sinks, sources, inputs and build
+	| { action: 'GetStatus' }
+
+	// Metadata about build
+	| { action: 'GetBuildInfo' }
+
+	// SINKS, e.g. Speakers
 	| {
 			action: 'SetSinkVolume'
 			payload: { name: string; volume: number }
@@ -22,6 +30,8 @@ export type Message =
 			action: 'SetSinkMuted'
 			payload: { name: string; muted: boolean }
 	  }
+
+	// Apps playing audio
 	| {
 			action: 'SetSinkInputVolume'
 			payload: { id: number; volume: number }
@@ -30,4 +40,8 @@ export type Message =
 			action: 'SetSinkInputMuted'
 			payload: { id: number; muted: boolean }
 	  }
-	| { action: 'GetStatus' }
+	// SOURCES, Microphone
+	| {
+			action: 'SetSourceVolume'
+			payload: { name: string; volume: number }
+	  }

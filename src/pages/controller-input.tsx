@@ -7,9 +7,9 @@ export const ControllerInput: React.FC = () => {
 	const vol = useVolumeStatus()
 
 	// @TODO (undg) 2024-11-07: finish handlers, when functionality implemented on BE and in hook
-	const handleSourceVolumeChange = (_name: string, [_volume]: number[]) => {
+	const handleSourceVolumeChange = (name: string, [volume]: number[]) => {
 		navigator.vibrate([10])
-		return { optimistic: () => {}, send: () => {} }
+		return vol.setSource(name, volume)
 	}
 
 	const handleSourceMuteToggle = (_name: string) => () => {
