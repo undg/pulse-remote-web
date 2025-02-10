@@ -14,7 +14,6 @@ Control Linux PC sound remotely from your phone.
   <img src="https://github.com/user-attachments/assets/3e9cd49a-666e-43d6-a0a5-1a1830f74cfd" width="300" alt="Image2">
 </div>
 
-
 ## Tech Stack
 
 - React, TypeScript, Vite

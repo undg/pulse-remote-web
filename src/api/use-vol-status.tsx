@@ -135,7 +135,7 @@ export const useVolumeStatus = () => {
 
 	return {
 		//
-		getStatus: volStatus,
+		volStatus,
 		setSink,
 		setSinkInput,
 		toggleSinkMute,

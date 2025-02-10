@@ -30,7 +30,7 @@ export const ControllerOutput: React.FC = () => {
 	return (
 		<Layout header={dict.headerOutput}>
 			<section className='flex flex-col gap-6 text-xl'>
-				{vol.getStatus?.outputs?.map(output => (
+				{vol.volStatus?.outputs?.map(output => (
 					// droppable
 					<VolumeSlider
 						key={output.id}
@@ -41,7 +41,7 @@ export const ControllerOutput: React.FC = () => {
 						onValueChange={volume => handleSinkVolumeChange(output.name, volume).optimistic()}
 						onValueCommit={volume => handleSinkVolumeChange(output.name, volume).send()}
 					>
-						{vol.getStatus?.apps?.map(
+						{vol.volStatus?.apps?.map(
 							app =>
 								app.outputId === output.id && (
 									// draggable

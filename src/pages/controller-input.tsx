@@ -19,7 +19,7 @@ export const ControllerInput: React.FC = () => {
 	return (
 		<Layout header={dict.headerInput}>
 			<section className='flex flex-col gap-6 text-xl'>
-				{vol.getStatus?.sources?.map(source => (
+				{vol.volStatus?.sources?.map(source => (
 					<VolumeSlider
 						key={source.id}
 						muted={source.muted}

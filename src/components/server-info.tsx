@@ -3,7 +3,7 @@ import { useVolumeStatus } from '../api/use-vol-status'
 import { H2, Muted, Small } from '../primitives/typography'
 
 export const ServerInfo: FC = () => {
-	const { getStatus: volStatus } = useVolumeStatus()
+	const { volStatus } = useVolumeStatus()
 
 	return (
 		<>
