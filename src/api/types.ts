@@ -45,3 +45,7 @@ export type Message =
 			action: 'SetSourceVolume'
 			payload: { name: string; volume: number }
 	  }
+	| {
+			action: 'SetSourceMuted'
+			payload: { name: string; muted: boolean }
+	  }
