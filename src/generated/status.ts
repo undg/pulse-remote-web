@@ -95,7 +95,7 @@ export interface Output {
 
 export interface Source {
 	/**
-	 * The id of the source. Same  as name
+	 * Unique numeric identifier of the source
 	 */
 	id: number
 	/**
@@ -103,11 +103,19 @@ export interface Source {
 	 */
 	label: string
 	/**
+	 * Name of monitor source capturing this source's output
+	 */
+	monitor: string
+	/**
+	 * Whether source is being monitored
+	 */
+	monitored: boolean
+	/**
 	 * Whether the source is muted
 	 */
 	muted: boolean
 	/**
-	 * The name of the source. Same as id
+	 * Unique string identifier of the source
 	 */
 	name: string
 	/**
