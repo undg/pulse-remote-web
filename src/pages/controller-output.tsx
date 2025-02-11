@@ -4,22 +4,20 @@ import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
 import { dict } from '../dict'
 import { useThrottledCallback } from '../utils/use-throttled-callback'
-
-const throttleTime = 500
-const vibrateTime = 10
+import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
 
 export const ControllerOutput: React.FC = () => {
 	const vol = useVolumeStatus()
 
 	// SINK volume control (with optimistic and throttle)
 	const sinkVolume = (name: string, [volume]: number[]) => {
-		navigator.vibrate([vibrateTime])
+		navigator.vibrate([VIBRATE_TIME])
 		return vol.setSink(name, volume)
 	}
 
 	const throttledSinkHandler = useThrottledCallback((outputName: string, volume: number[]) => {
 		sinkVolume(outputName, volume).send()
-	}, throttleTime)
+	}, THROTTLE_TIME)
 
 	const handleSinkVolumeChange = (outputName: string, volume: number[]) => {
 		sinkVolume(outputName, volume).optimistic()
@@ -28,19 +26,19 @@ export const ControllerOutput: React.FC = () => {
 
 	// SINK mute toggle
 	const handleSinkMuteToggle = (name: string) => () => {
-		navigator.vibrate([vibrateTime])
+		navigator.vibrate([VIBRATE_TIME])
 		vol.toggleSinkMute(name)
 	}
 
 	// SINK INPUT volume control (with optimistic and throttle)
 	const sinkInputVolume = (id: number, [volume]: number[]) => {
-		navigator.vibrate([vibrateTime])
+		navigator.vibrate([VIBRATE_TIME])
 		return vol.setSinkInput(id, volume)
 	}
 
 	const throttledSinkInputHandler = useThrottledCallback((id: number, volume: number[]) => {
 		sinkInputVolume(id, volume).send()
-	}, throttleTime)
+	}, THROTTLE_TIME)
 
 	const handleSinkInputVolumeChange = (id: number, volume: number[]) => {
 		sinkInputVolume(id, volume).optimistic()
@@ -49,7 +47,7 @@ export const ControllerOutput: React.FC = () => {
 
 	// SINK INPUT mute toggle
 	const handleSinkInputMuteToggle = (id: number) => () => {
-		navigator.vibrate([vibrateTime])
+		navigator.vibrate([VIBRATE_TIME])
 		vol.toggleSinkInputMute(id)
 	}
 

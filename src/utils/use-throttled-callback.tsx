@@ -18,5 +18,5 @@ import { useCallback } from 'react'
  * }
  */
 export function useThrottledCallback<T extends (...args: any[]) => any>(callback: T, delay: number) {
-	return useCallback(throttle(callback, delay), [callback, delay])
+	return useCallback(throttle(callback, delay), [delay])
 }

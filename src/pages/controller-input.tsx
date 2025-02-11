@@ -2,22 +2,35 @@ import { useVolumeStatus } from '../api/use-vol-status'
 import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
 import { useConfig } from '../config/use-config'
+import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
 import { dict } from '../dict'
+import { useThrottledCallback } from '../utils/use-throttled-callback'
 
 export const ControllerInput: React.FC = () => {
 	const vol = useVolumeStatus()
 	const [config] = useConfig()
 
-	const handleSourceVolumeChange = (name: string, [volume]: number[]) => {
+	// SOURCE volume control (with optimistic update and throttle)
+	const sourceVolume = (name: string, [volume]: number[]) => {
 		navigator.vibrate([10])
 		return vol.setSource(name, volume)
 	}
 
+	const throttledSourceVolumeHandler = useThrottledCallback((name: string, volume: number[]) => {
+		sourceVolume(name, volume).send()
+	}, THROTTLE_TIME)
+
+	const handleSourceVolumeChange = (name: string, volume: number[]) => {
+		sourceVolume(name, volume).optimistic()
+		throttledSourceVolumeHandler(name, volume)
+	}
+
 	const handleSourceMuteToggle = (name: string) => () => {
-		navigator.vibrate([10])
+		navigator.vibrate([VIBRATE_TIME])
 		vol.toggleSourceMute(name)
 	}
 
+	// other handlers
 	const showSourceMonitors = (sourceMonitored: boolean) =>
 		config.showMonitoredSources || (!config.showMonitoredSources && !sourceMonitored)
 
@@ -33,8 +46,8 @@ export const ControllerInput: React.FC = () => {
 								volume={source.volume}
 								label={source.label}
 								onMuteChange={handleSourceMuteToggle(source.name)}
-								onValueChange={volume => handleSourceVolumeChange(source.name, volume).optimistic()}
-								onValueCommit={volume => handleSourceVolumeChange(source.name, volume).send()}
+								onValueChange={volume => handleSourceVolumeChange(source.name, volume)}
+								onValueCommit={volume => sourceVolume(source.name, volume).send()}
 							></VolumeSlider>
 						),
 				)}

@@ -1,3 +1,6 @@
+export const THROTTLE_TIME = 300
+export const VIBRATE_TIME = 10
+
 export const def = {
 	VOLUME_STEP: 10,
 	/**
