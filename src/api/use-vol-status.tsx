@@ -6,11 +6,10 @@ import type { IncomingMessage } from './types'
 import { useWebSocketApi } from './use-web-socket-api'
 import { PrapiStatus } from '../generated/status'
 import { Action } from '../generated/message'
+import { debugAtom } from '../utils/debugAtom'
 
 export const volStatusAtom = atom<PrapiStatus>()
-if (process.env.NODE_ENV !== 'production') {
-	volStatusAtom.debugLabel = 'statusAtom'
-}
+debugAtom(volStatusAtom, 'volStatusAtom')
 
 export const useVolumeStatus = () => {
 	const [volStatus, updateVolStatus] = useImmerAtom(volStatusAtom)

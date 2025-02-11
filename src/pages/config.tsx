@@ -26,6 +26,12 @@ export const Config: FC = () => {
 		})
 	}
 
+	const handleShowMonitedSourceChange = (monitored: boolean) => {
+		updateConfig({
+			showMonitoredSources: monitored,
+		})
+	}
+
 	const handleConfigReset = () => {
 		updateConfig(defaultConfig)
 	}
@@ -36,8 +42,12 @@ export const Config: FC = () => {
 					<H3>Sources</H3>
 					<div className='flex justify-start gap-2'>
 						<div className='flex items-center space-x-2'>
-							<Switch id='airplane-mode' />
-							<Label htmlFor='airplane-mode'>Airplane Mode</Label>
+							<Switch
+								id='show-monitors'
+								checked={config.showMonitoredSources}
+								onCheckedChange={handleShowMonitedSourceChange}
+							/>
+							<Label htmlFor='show-monitors'>Show Monitors</Label>
 						</div>
 					</div>
 				</section>
