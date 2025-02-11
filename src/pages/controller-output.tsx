@@ -1,8 +1,9 @@
-import { Fragment } from 'react'
+import { Fragment, useCallback } from 'react'
 import { useVolumeStatus } from '../api/use-vol-status'
 import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
 import { dict } from '../dict'
+import throttle from 'lodash.throttle'
 
 export const ControllerOutput: React.FC = () => {
 	const vol = useVolumeStatus()
@@ -27,6 +28,20 @@ export const ControllerOutput: React.FC = () => {
 		vol.toggleSinkInputMute(id)
 	}
 
+	const throttledHandler = useCallback(
+		throttle((outputName: string, volume: number[]) => {
+			handleSinkVolumeChange(outputName, volume).send()
+		}, 500),
+		[],
+	)
+
+	const handleChange = (outputName: string) => (volume: number[]) => {
+		handleSinkVolumeChange(outputName, volume).optimistic()
+
+		console.log('change')
+		throttledHandler(outputName, volume)
+	}
+
 	return (
 		<Layout header={dict.headerOutput}>
 			<section className='flex flex-col gap-6 text-xl'>
@@ -38,7 +53,7 @@ export const ControllerOutput: React.FC = () => {
 						volume={output.volume}
 						label={output.label}
 						onMuteChange={handleSinkMuteToggle(output.name)}
-						onValueChange={volume => handleSinkVolumeChange(output.name, volume).optimistic()}
+						onValueChange={handleChange(output.name)}
 						onValueCommit={volume => handleSinkVolumeChange(output.name, volume).send()}
 					>
 						{vol.volStatus?.apps?.map(
