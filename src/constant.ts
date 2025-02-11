@@ -25,6 +25,7 @@ export const testid = {
 	btnVolumeDown: 'btn-volume-down',
 
 	// config page
+	configPage: 'config-page',
 	inputMinVolume: 'input-min-volume',
 	inputMaxVolume: 'input-max-volume',
 	inputStepVolume: 'input-step-volume',

@@ -11,7 +11,7 @@ describe(`<Config /> route`, () => {
 
 	test(`Config renders and not crash`, () => {
 		renderWithRouter(<Config />)
-		expect(screen.getByText('Config')).toBeInTheDocument()
+		expect(screen.getByTestId(testid.configPage)).toBeInTheDocument()
 	})
 
 	describe(`Input's updates`, () => {
