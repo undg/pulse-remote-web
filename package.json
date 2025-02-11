@@ -14,7 +14,7 @@
     "test:e2e": "pnpm preview:test 'cypress open'",
     "test:e2e:headless": "pnpm preview:test 'cypress run'",
     "test:e2e:ci": "vite build && pnpm preview:test 'cypress run'",
-    "format": "prettier -uw --cache --ignore-path .gitignore --ignore-path .prettierignore .",
+    "format": "prettier -w --cache --ignore-path .gitignore --ignore-path .prettierignore .",
     "lint": "run-p lint:*",
     "lint:tsc": "tsc",
     "lint:eslint": "eslint --cache --fix .",
