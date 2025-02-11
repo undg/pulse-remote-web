@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import type { IncomingMessage } from './types'
 import { useWebSocketApi } from './use-web-socket-api'
 import { PrapiStatus } from '../generated/status'
+import { Action } from '../generated/message'
 
 export const volStatusAtom = atom<PrapiStatus>()
 if (process.env.NODE_ENV !== 'production') {
@@ -41,7 +42,7 @@ export const useVolumeStatus = () => {
 
 		function send() {
 			sendMessage({
-				action: 'SetSinkVolume',
+				action: Action.SetSinkVolume,
 				payload: { name, volume },
 			})
 		}
@@ -64,7 +65,7 @@ export const useVolumeStatus = () => {
 
 		function send() {
 			sendMessage({
-				action: 'SetSinkInputVolume',
+				action: Action.SetSinkInputVolume,
 				payload: { id, volume },
 			})
 		}
@@ -84,14 +85,14 @@ export const useVolumeStatus = () => {
 		})
 
 		sendMessage({
-			action: 'SetSinkMuted',
+			action: Action.SetSinkMuted,
 			payload: { name, muted: !volStatus?.outputs?.find(s => s.name === name)?.muted },
 		})
 	}
 
 	const toggleSinkInputMute = (id: number) => {
 		sendMessage({
-			action: 'SetSinkInputMuted',
+			action: Action.SetSinkInputMuted,
 			payload: { id, muted: !volStatus?.apps?.find(s => s.id === id)?.muted },
 		})
 	}
@@ -108,7 +109,7 @@ export const useVolumeStatus = () => {
 
 		function send() {
 			sendMessage({
-				action: 'SetSourceVolume',
+				action: Action.SetSourceVolume,
 				payload: { name, volume },
 			})
 		}
@@ -128,7 +129,7 @@ export const useVolumeStatus = () => {
 		})
 
 		sendMessage({
-			action: 'SetSourceMuted',
+			action: Action.SetSourceMuted,
 			payload: { name, muted: !volStatus?.sources?.find(s => s.name === name)?.muted },
 		})
 	}
