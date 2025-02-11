@@ -6,6 +6,8 @@ import { dict } from '../dict'
 import { Button } from '../primitives/button'
 import { Input } from '../primitives/input'
 import { H3 } from '../primitives/typography'
+import { Label } from '../primitives/label'
+import { Switch } from '../primitives/switch'
 
 export const Config: FC = () => {
 	const [config, updateConfig] = useConfig()
@@ -32,7 +34,12 @@ export const Config: FC = () => {
 			<div className='flex flex-col gap-4' data-testid={testid.configPage}>
 				<section>
 					<H3>Sources</H3>
-					<div className='flex justify-start gap-2'>switch placeholder</div>
+					<div className='flex justify-start gap-2'>
+						<div className='flex items-center space-x-2'>
+							<Switch id='airplane-mode' />
+							<Label htmlFor='airplane-mode'>Airplane Mode</Label>
+						</div>
+					</div>
 				</section>
 				<section>
 					<H3>Server</H3>

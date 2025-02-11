@@ -1,3 +1,5 @@
+'use client'
+
 import { UniqueIdentifier, useDroppable } from '@dnd-kit/core'
 import { ReactNode } from 'react'
 

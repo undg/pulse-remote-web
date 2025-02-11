@@ -175,6 +175,43 @@ export default [
 			'react/jsx-no-constructed-context-values': 'error',
 			'react/jsx-no-script-url': 'error',
 			'react/jsx-no-useless-fragment': 'error',
+			'no-restricted-imports': [
+				'error',
+				{
+					patterns: [
+						{
+							regex: '^(?!.*/primitives/button$).*$',
+							importNames: ['Button'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+						{
+							regex: '^(?!.*/primitives/switch$).*$',
+							importNames: ['Switch'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+						{
+							regex: '^(?!.*/primitives/label$).*$',
+							importNames: ['Label'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+						{
+							regex: '^(?!.*/primitives/input$).*$',
+							importNames: ['Input'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+						{
+							regex: '^(?!.*/primitives/slider$).*$',
+							importNames: ['Slider'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+						{
+							regex: '^(?!.*/primitives/toggle$).*$',
+							importNames: ['Toggle'],
+							message: 'This is most likely mistake, did you want to import from /primitives/(...) instead?',
+						},
+					],
+				},
+			],
 		},
 	},
 	{

@@ -1,3 +1,6 @@
+'use client'
+
+// eslint-disable-next-line no-restricted-imports
 import * as React from 'react'
 import { cn } from '../utils/cn'
 import { Muted, Small } from './typography'

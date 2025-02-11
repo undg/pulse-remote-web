@@ -1,4 +1,8 @@
+'use client'
+
+// eslint-disable-next-line no-restricted-imports
 import * as React from 'react'
+// eslint-disable-next-line no-restricted-imports
 import * as SwitchPrimitives from '@radix-ui/react-switch'
 import { cn } from '../utils/cn'
 
