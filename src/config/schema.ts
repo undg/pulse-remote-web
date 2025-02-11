@@ -15,7 +15,7 @@ export const ConfigSchema = z
 			.refine(
 				val => {
 					const num = parseInt(val, 10)
-					return num >= 1024 && num <= 65535
+					return num >= 1 && num <= 65535
 				},
 				{ message: 'Port must be between 1024 and 65535' },
 			)
