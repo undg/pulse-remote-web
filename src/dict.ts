@@ -1,5 +1,5 @@
 export const dict = {
-	appName: 'Pulse Remote',
+	appName: 'PulseRemote',
 	headerInput: 'Input',
 	headerOutput: 'Output',
 	headerAbout: 'About',
