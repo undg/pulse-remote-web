@@ -5,7 +5,7 @@ import { VolumeSlider } from '../components/volume-slider'
 import { dict } from '../dict'
 import { useThrottledCallback } from '../utils/use-throttled-callback'
 
-const throttleTime = 200
+const throttleTime = 500
 const vibrateTime = 10
 
 export const ControllerOutput: React.FC = () => {
@@ -13,7 +13,7 @@ export const ControllerOutput: React.FC = () => {
 
 	// SINK volume control (with optimistic and throttle)
 	const sinkVolume = (name: string, [volume]: number[]) => {
-		navigator.vibrate([10])
+		navigator.vibrate([vibrateTime])
 		return vol.setSink(name, volume)
 	}
 
@@ -28,13 +28,13 @@ export const ControllerOutput: React.FC = () => {
 
 	// SINK mute toggle
 	const handleSinkMuteToggle = (name: string) => () => {
-		navigator.vibrate([10])
+		navigator.vibrate([vibrateTime])
 		vol.toggleSinkMute(name)
 	}
 
 	// SINK INPUT volume control (with optimistic and throttle)
 	const sinkInputVolume = (id: number, [volume]: number[]) => {
-		navigator.vibrate([10])
+		navigator.vibrate([vibrateTime])
 		return vol.setSinkInput(id, volume)
 	}
 
@@ -49,7 +49,7 @@ export const ControllerOutput: React.FC = () => {
 
 	// SINK INPUT mute toggle
 	const handleSinkInputMuteToggle = (id: number) => () => {
-		navigator.vibrate([10])
+		navigator.vibrate([vibrateTime])
 		vol.toggleSinkInputMute(id)
 	}
 
