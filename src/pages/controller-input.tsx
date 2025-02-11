@@ -12,7 +12,7 @@ export const ControllerInput: React.FC = () => {
 
 	// SOURCE volume control (with optimistic update and throttle)
 	const sourceVolume = (name: string, [volume]: number[]) => {
-		navigator.vibrate([10])
+		navigator.vibrate([VIBRATE_TIME])
 		return vol.setSource(name, volume)
 	}
 
