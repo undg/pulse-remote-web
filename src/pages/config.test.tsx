@@ -26,9 +26,9 @@ describe(`<Config /> route`, () => {
 
 			// Change all fields
 			fireEvent.change(hostname, { target: { value: 'new-host' } })
-			fireEvent.change(port, { target: { value: 69 } })
+			fireEvent.change(port, { target: { value: 6969 } })
 			fireEvent.change(endpoint, { target: { value: '/new-endpoint' } })
-			expect(fullUrl).toHaveValue('ws://new-host:69/new-endpoint')
+			expect(fullUrl).toHaveValue('ws://new-host:6969/new-endpoint')
 
 			// Reset to defaults
 			fireEvent.click(resetBtn)

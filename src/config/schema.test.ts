@@ -6,6 +6,7 @@ describe('ConfigSchema', () => {
 			hostname: 'localhost',
 			port: '8448',
 			endpoint: '/api/v1/ws',
+			showMonitoredSources: true,
 		}
 		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual('ws://localhost:8448/api/v1/ws')
 	})
@@ -15,6 +16,7 @@ describe('ConfigSchema', () => {
 			hostname: 'localhost',
 			port: '8448',
 			endpoint: '/api/v1/ws',
+			showMonitoredSources: true,
 		}
 		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual('ws://localhost:8448/api/v1/ws')
 	})
@@ -26,6 +28,7 @@ describe('ConfigSchema', () => {
 				port: '8448',
 				endpoint: 'api/v1/ws',
 				serverUrl: 'ws://localhost:8448/api/v1/ws',
+				showMonitoredSources: true,
 			}
 			expect(() => ConfigSchema.parse(invalidConfig)).toThrow()
 		})
@@ -36,6 +39,7 @@ describe('ConfigSchema', () => {
 				hostname: 'localhost',
 				endpoint: '/api/v1/ws',
 				serverUrl: 'ws://localhost:8448/api/v1/ws',
+				showMonitoredSources: true,
 			}
 			expect(ConfigSchema.parse(invalidConfig).port).toEqual(undefined)
 		})
@@ -46,6 +50,7 @@ describe('ConfigSchema', () => {
 				port: '-1',
 				endpoint: '/api/v1/ws',
 				serverUrl: 'ws://localhost:8448/api/v1/ws',
+				showMonitoredSources: true,
 			}
 			expect(() => ConfigSchema.parse(invalidConfig)).toThrow()
 		})
@@ -56,6 +61,7 @@ describe('ConfigSchema', () => {
 				port: '70000',
 				endpoint: '/api/v1/ws',
 				serverUrl: 'ws://localhost:8448/api/v1/ws',
+				showMonitoredSources: true,
 			}
 			expect(() => ConfigSchema.parse(invalidConfig)).toThrow()
 		})
@@ -68,6 +74,7 @@ describe('ConfigSchema', () => {
 				port: '8448',
 				endpoint: 'api/v1/ws',
 				serverUrl: 'ws://localhost:8448/api/v1/ws',
+				showMonitoredSources: true,
 			}
 			expect(() => ConfigSchema.parse(invalidConfig)).toThrow()
 		})

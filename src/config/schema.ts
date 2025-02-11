@@ -15,16 +15,17 @@ export const ConfigSchema = z
 			.refine(
 				val => {
 					const num = parseInt(val, 10)
-					return num >= 1 && num <= 65535
+					return num >= 1024 && num <= 65535
 				},
-				{ message: 'Port must be between 1 and 65535' },
+				{ message: 'Port must be between 1024 and 65535' },
 			)
 			.optional()
-			.describe('Valid port between 1 and 65535'),
+			.describe('Valid port between 1024 and 65535'),
 		endpoint: z.string().startsWith('/').describe('API endpoint path starting with /'),
 		serverUrl: z.string().optional().describe('Full server URL. Do not edit directly.'),
+		showMonitoredSources: z.boolean().describe('Show monitored sources.'),
 	})
-	.transform(({ hostname, port, endpoint, maxVolume, minVolume, stepVolume }) => ({
+	.transform(({ hostname, port, endpoint, maxVolume, minVolume, stepVolume, showMonitoredSources }) => ({
 		/** Min volume for slider, default 0 */
 		minVolume,
 		/** Max volume for slider, default 150 */
@@ -39,6 +40,8 @@ export const ConfigSchema = z
 		endpoint,
 		/** Full server URL. Automatically generated. Do not edit directly. */
 		serverUrl: `ws://${hostname}:${port}${endpoint}`,
+		/** Filter out sources that are just sink monitors */
+		showMonitoredSources,
 	}))
 
 export type Config = z.infer<typeof ConfigSchema>

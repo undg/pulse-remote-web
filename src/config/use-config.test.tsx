@@ -14,6 +14,7 @@ describe('useConfig', () => {
 			minVolume: 0,
 			maxVolume: 150,
 			stepVolume: 10,
+			showMonitoredSources: true,
 		})
 	})
 
@@ -37,6 +38,7 @@ describe('useConfig', () => {
 			minVolume: 0,
 			maxVolume: 150,
 			stepVolume: 10,
+			showMonitoredSources: true,
 		})
 	})
 
@@ -60,6 +62,7 @@ describe('useConfig', () => {
 			minVolume: 69,
 			maxVolume: 50,
 			stepVolume: 10,
+			showMonitoredSources: true,
 		})
 	})
 
@@ -83,6 +86,7 @@ describe('useConfig', () => {
 			minVolume: 0,
 			maxVolume: 150,
 			stepVolume: 10,
+			showMonitoredSources: true,
 		})
 	})
 })
