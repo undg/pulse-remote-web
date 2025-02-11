@@ -31,7 +31,7 @@ export const TopNav: FC = () => {
 				<ButtonNavLink to={routes.config} testid={testid.gotoConfig}>
 					<Settings />
 				</ButtonNavLink>
-				<Button variant='outline' size='sm' testid={testid.btnTheme} onClick={handleThemeToggle}>
+				<Button variant='outline' size='sm' data-testid={testid.btnTheme} onClick={handleThemeToggle}>
 					{theme === 'light' && <Sun />}
 					{theme === 'dark' && <Moon />}
 				</Button>
