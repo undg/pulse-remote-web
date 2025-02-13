@@ -2,7 +2,7 @@ import { atom } from 'jotai'
 import { useAtomDevtools } from 'jotai-devtools'
 import { useImmerAtom } from 'jotai-immer'
 import { useEffect } from 'react'
-import type { IncomingMessage } from './types'
+import type { IncomingMessage, MessageMoveSinkInput } from './types'
 import { useWebSocketApi } from './use-web-socket-api'
 import { PrapiStatus } from '../generated/status'
 import { Action } from '../generated/message'
@@ -75,6 +75,13 @@ export const useVolumeStatus = () => {
 		}
 	}
 
+	const moveSinkInput = ({ name, id }: MessageMoveSinkInput['payload']) => {
+		sendMessage({
+			action: Action.MoveSinkInput,
+			payload: { name, id },
+		})
+	}
+
 	const toggleSinkMute = (name: string) => {
 		updateVolStatus(draft => {
 			const sink = draft?.outputs?.find(s => s.name === name)
@@ -134,12 +141,18 @@ export const useVolumeStatus = () => {
 	}
 
 	return {
-		//
 		volStatus,
+
+		// Sink
 		setSink,
-		setSinkInput,
 		toggleSinkMute,
+
+		// SinkInput
+		setSinkInput,
+		moveSinkInput,
 		toggleSinkInputMute,
+
+		// Source
 		setSource,
 		toggleSourceMute,
 	}
