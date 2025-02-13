@@ -13,7 +13,7 @@ export const ControllerInput: React.FC = () => {
 	// SOURCE volume control (with optimistic update and throttle)
 	const sourceVolume = (name: string, [volume]: number[]) => {
 		navigator.vibrate([VIBRATE_TIME])
-		return vol.setSource(name, volume)
+		return vol.setSource({ name, volume })
 	}
 
 	const throttledSourceVolumeHandler = useThrottledCallback((name: string, volume: number[]) => {
@@ -27,7 +27,7 @@ export const ControllerInput: React.FC = () => {
 
 	const handleSourceMuteToggle = (name: string) => () => {
 		navigator.vibrate([VIBRATE_TIME])
-		vol.toggleSourceMute(name)
+		vol.toggleSourceMute({ name })
 	}
 
 	// other handlers

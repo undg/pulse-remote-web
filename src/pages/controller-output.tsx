@@ -16,7 +16,7 @@ export const ControllerOutput: React.FC = () => {
 	// SINK volume control (with optimistic and throttle)
 	const sinkVolume = (name: string, [volume]: number[]) => {
 		navigator.vibrate([VIBRATE_TIME])
-		return vol.setSink(name, volume)
+		return vol.setSink({ name, volume })
 	}
 
 	const throttledSinkHandler = useThrottledCallback((outputName: string, volume: number[]) => {
@@ -31,13 +31,13 @@ export const ControllerOutput: React.FC = () => {
 	// SINK mute toggle
 	const handleSinkMuteToggle = (name: string) => () => {
 		navigator.vibrate([VIBRATE_TIME])
-		vol.toggleSinkMute(name)
+		vol.toggleSinkMute({ name })
 	}
 
 	// SINK INPUT volume control (with optimistic and throttle)
 	const sinkInputVolume = (id: number, [volume]: number[]) => {
 		navigator.vibrate([VIBRATE_TIME])
-		return vol.setSinkInput(id, volume)
+		return vol.setSinkInput({ id, volume })
 	}
 
 	const throttledSinkInputHandler = useThrottledCallback((id: number, volume: number[]) => {
@@ -52,7 +52,7 @@ export const ControllerOutput: React.FC = () => {
 	// SINK INPUT mute toggle
 	const handleSinkInputMuteToggle = (id: number) => () => {
 		navigator.vibrate([VIBRATE_TIME])
-		vol.toggleSinkInputMute(id)
+		vol.toggleSinkInputMute({ id })
 	}
 
 	const [draggId, setDraggId] = useState<UniqueIdentifier | undefined>(undefined)

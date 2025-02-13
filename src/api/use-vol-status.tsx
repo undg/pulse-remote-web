@@ -2,7 +2,16 @@ import { atom } from 'jotai'
 import { useAtomDevtools } from 'jotai-devtools'
 import { useImmerAtom } from 'jotai-immer'
 import { useEffect } from 'react'
-import type { IncomingMessage, MessageMoveSinkInput } from './types'
+import type {
+	IncomingMessage,
+	MessageMoveSinkInput,
+	MessageSetSinkInputMuted,
+	MessageSetSinkInputVolume,
+	MessageSetSinkMuted,
+	MessageSetSinkVolume,
+	MessageSetSourceMuted,
+	MessageSetSourceVolume,
+} from './types'
 import { useWebSocketApi } from './use-web-socket-api'
 import { PrapiStatus } from '../generated/status'
 import { Action } from '../generated/message'
@@ -29,7 +38,7 @@ export const useVolumeStatus = () => {
 		}
 	}, [lastMessage, updateVolStatus])
 
-	const setSink = (name: string, volume: number) => {
+	const setSink = ({ name, volume }: MessageSetSinkVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
 				const sink = draft?.outputs?.find(s => s.name === name)
@@ -52,7 +61,7 @@ export const useVolumeStatus = () => {
 		}
 	}
 
-	const setSinkInput = (id: number, volume: number) => {
+	const setSinkInput = ({ id, volume }: MessageSetSinkInputVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
 				const sink = draft?.apps?.find(s => s.id === id)
@@ -82,7 +91,7 @@ export const useVolumeStatus = () => {
 		})
 	}
 
-	const toggleSinkMute = (name: string) => {
+	const toggleSinkMute = ({ name }: Pick<MessageSetSinkMuted['payload'], 'name'>) => {
 		updateVolStatus(draft => {
 			const sink = draft?.outputs?.find(s => s.name === name)
 			if (sink) {
@@ -96,14 +105,14 @@ export const useVolumeStatus = () => {
 		})
 	}
 
-	const toggleSinkInputMute = (id: number) => {
+	const toggleSinkInputMute = ({ id }: Pick<MessageSetSinkInputMuted['payload'], 'id'>) => {
 		sendMessage({
 			action: Action.SetSinkInputMuted,
 			payload: { id, muted: !volStatus?.apps?.find(s => s.id === id)?.muted },
 		})
 	}
 
-	const setSource = (name: string, volume: number) => {
+	const setSource = ({ name, volume }: MessageSetSourceVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
 				const source = draft?.sources?.find(s => s.name === name)
@@ -126,7 +135,7 @@ export const useVolumeStatus = () => {
 		}
 	}
 
-	const toggleSourceMute = (name: string) => {
+	const toggleSourceMute = ({ name }: Pick<MessageSetSourceMuted['payload'], 'name'>) => {
 		updateVolStatus(draft => {
 			const source = draft?.sources?.find(s => s.name === name)
 			if (source) {
