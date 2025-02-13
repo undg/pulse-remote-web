@@ -1,10 +1,14 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { useVolumeStatus } from '../api/use-vol-status'
 import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
 import { dict } from '../dict'
 import { useThrottledCallback } from '../utils/use-throttled-callback'
 import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
+import { Draggable } from '../primitives/draggable'
+import { Droppable } from '../primitives/droppable'
+import { DndContext, UniqueIdentifier } from '@dnd-kit/core'
+import { cn } from '../utils/cn'
 
 export const ControllerOutput: React.FC = () => {
 	const vol = useVolumeStatus()
@@ -51,45 +55,62 @@ export const ControllerOutput: React.FC = () => {
 		vol.toggleSinkInputMute(id)
 	}
 
+	const [draggId, setDraggId] = useState<UniqueIdentifier | undefined>(undefined)
+
 	return (
 		<Layout header={dict.headerOutput}>
-			<section className='flex flex-col gap-6 text-xl'>
-				{vol.volStatus?.outputs?.map(output => (
-					// droppable
-					<VolumeSlider
-						key={output.id}
-						muted={output.muted}
-						volume={output.volume}
-						label={output.label}
-						onMuteChange={handleSinkMuteToggle(output.name)}
-						onValueChange={volume => handleSinkVolumeChange(output.name, volume)}
-						onValueCommit={volume => sinkVolume(output.name, volume).send()}
-					>
-						{vol.volStatus?.apps?.map(
-							app =>
-								app.outputId === output.id && (
-									// draggable
-									<Fragment key={app.id}>
-										<div className='relative ml-4 flex h-full items-end justify-end'>
-											<span
-												/* tree-branch */
-												className='absolute bottom-1 h-full w-full border-2 border-r-0 border-t-0 border-b-foreground border-l-foreground'
-											/>
-										</div>
-										<VolumeSlider
-											muted={app.muted}
-											label={app.label}
-											volume={app.volume}
-											onMuteChange={handleSinkInputMuteToggle(app.id)}
-											onValueChange={volume => handleSinkInputVolumeChange(app.id, volume)}
-											onValueCommit={volume => sinkInputVolume(app.id, volume).send()}
-										/>
-									</Fragment>
-								),
-						)}
-					</VolumeSlider>
-				))}
-			</section>
+			<DndContext
+				onDragStart={e => {
+					setDraggId(e.active.id)
+				}}
+				onDragEnd={e => {
+					console.log('sinkInput/device name (app.id)', e.active?.id)
+					console.log('sink/app id (output.id)', e.over?.id)
+					setDraggId(undefined)
+				}}
+			>
+				<section className='flex flex-col gap-6 text-xl'>
+					{vol.volStatus?.outputs?.map(output => (
+						<Droppable key={output.id} id={output.name}>
+							<VolumeSlider
+								muted={output.muted}
+								volume={output.volume}
+								label={output.label}
+								onMuteChange={handleSinkMuteToggle(output.name)}
+								onValueChange={volume => handleSinkVolumeChange(output.name, volume)}
+								onValueCommit={volume => sinkVolume(output.name, volume).send()}
+							>
+								{vol.volStatus?.apps?.map(
+									app =>
+										app.outputId === output.id && (
+											<Fragment key={app.id}>
+												<div className={cn('mb-4 ml-[14px] flex h-full flex-col pt-1')}>
+													{/* tree-branch */}
+													<div
+														className={cn(
+															'h-full w-0 border-4 border-r-0 border-dotted border-foreground',
+															draggId === app.id && 'opacity-30',
+														)}
+													/>
+													<Draggable id={app.id} className='ml-[-3px]' />
+												</div>
+												<VolumeSlider
+													className={cn(draggId === app.id && 'opacity-30')}
+													muted={app.muted}
+													label={app.label}
+													volume={app.volume}
+													onMuteChange={handleSinkInputMuteToggle(app.id)}
+													onValueChange={volume => handleSinkInputVolumeChange(app.id, volume)}
+													onValueCommit={volume => sinkInputVolume(app.id, volume).send()}
+												/>
+											</Fragment>
+										),
+								)}
+							</VolumeSlider>
+						</Droppable>
+					))}
+				</section>
+			</DndContext>
 		</Layout>
 	)
 }

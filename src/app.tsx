@@ -3,7 +3,6 @@ import { Suspense } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import LoadingOrError from './components/loading-or-error'
 import { Router } from './router'
-// import { DndContext } from '@dnd-kit/core'
 
 export default function App(): ReactElement {
 	return (

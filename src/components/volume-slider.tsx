@@ -8,10 +8,11 @@ import { Small } from '../primitives/typography'
 import { cn } from '../utils/cn'
 
 const getVolumeIcon = (volume: number, muted: boolean) => {
-	if (muted || volume === 0) return <VolumeOff color='red' />
-	if (volume <= 50) return <Volume />
-	if (volume <= 90) return <Volume1 />
-	return <Volume2 />
+	const size = '2em'
+	if (muted || volume === 0) return <VolumeOff color='red' size={size} />
+	if (volume <= 50) return <Volume size={size} />
+	if (volume <= 90) return <Volume1 size={size} />
+	return <Volume2 size={size} />
 }
 
 export const VolumeSlider: React.FC<{
@@ -71,8 +72,8 @@ export const VolumeSlider: React.FC<{
 
 	return (
 		<div
-			className={cn('grid items-center gap-x-4 gap-y-0', props.className)}
-			style={{ gridTemplateColumns: '2em auto', gridTemplateRows: 'repeat(1em)' }}
+			className={cn('grid items-center gap-x-1 gap-y-0', props.className)}
+			style={{ gridTemplateColumns: '1.8em auto', gridTemplateRows: 'repeat(1em)' }}
 		>
 			<Toggle
 				variant='default'
