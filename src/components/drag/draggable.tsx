@@ -4,7 +4,7 @@ import { UniqueIdentifier, useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
 import { Grip } from 'lucide-react'
 import { ReactNode } from 'react'
-import { cn } from '../utils/cn'
+import { cn } from '../../utils/cn'
 
 export function Draggable({
 	id,

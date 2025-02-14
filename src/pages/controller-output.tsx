@@ -1,55 +1,19 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { useVolumeStatus } from '../api/use-vol-status'
 import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
 import { dict } from '../dict'
 import { useThrottledCallback } from '../utils/use-throttled-callback'
 import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
-import { Draggable } from '../components/draggable'
-import { Droppable } from '../components/droppable'
-import { DndContext, DragEndEvent, DragStartEvent, UniqueIdentifier } from '@dnd-kit/core'
+import { DndContext } from '@dnd-kit/core'
 import { cn } from '../utils/cn'
-
-const useDrag = () => {
-	const vol = useVolumeStatus()
-	const [activeId, setActiveId] = useState<UniqueIdentifier | undefined>(undefined)
-
-	const onStart = (e: DragStartEvent) => {
-		setActiveId(e.active.id)
-	}
-
-	const onEnd = (e: DragEndEvent) => {
-		setActiveId(undefined)
-		if (!e.over) {
-			console.error('missing name')
-			return
-		}
-		if (typeof e.over.id !== 'string') {
-			console.error('name should be a string')
-			return
-		}
-		if (!e.active) {
-			console.error('missing id')
-			return
-		}
-		if (typeof e.active.id !== 'number') {
-			console.error('id should be a number')
-			return
-		}
-		vol.moveSinkInput({ name: e.over.id, id: e.active.id })
-	}
-
-	return {
-		activeId,
-		onDragStart: onStart,
-		onDragEnd: onEnd,
-	}
-}
+import { useDragSinkInput } from '../components/drag/use-drag'
+import { Droppable } from '../components/drag/droppable'
+import { Draggable } from '../components/drag/draggable'
 
 export const ControllerOutput: React.FC = () => {
 	const vol = useVolumeStatus()
-	vol.moveSinkInput
-	const drag = useDrag()
+	const drag = useDragSinkInput(vol.moveSinkInput)
 
 	// SINK volume control (with optimistic and throttle)
 	const sinkVolume = (name: string, [volume]: number[]) => {
