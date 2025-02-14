@@ -1,13 +1,24 @@
 'use client'
 
-import { UniqueIdentifier, DragStartEvent, DragEndEvent, useSensors, useSensor, TouchSensor } from '@dnd-kit/core'
+import {
+	UniqueIdentifier,
+	DragStartEvent,
+	DragEndEvent,
+	useSensors,
+	useSensor,
+	TouchSensor,
+	MouseSensor,
+	KeyboardSensor,
+} from '@dnd-kit/core'
 import { useState } from 'react'
 import { MessageMoveSinkInput } from '../../api/types'
 
 export const useDragSinkInput = (moveFn: ({ name, id }: MessageMoveSinkInput['payload']) => void) => {
 	const [activeId, setActiveId] = useState<UniqueIdentifier | undefined>(undefined)
-
-	const sensors = useSensors(useSensor(TouchSensor))
+	const mouseSensor = useSensor(MouseSensor)
+	const touchSensor = useSensor(TouchSensor)
+	const keyboardSensor = useSensor(KeyboardSensor)
+	const sensors = useSensors(touchSensor, mouseSensor, keyboardSensor)
 
 	const onStart = (e: DragStartEvent) => {
 		setActiveId(e.active.id)
