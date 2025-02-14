@@ -85,6 +85,15 @@ export const useVolumeStatus = () => {
 	}
 
 	const moveSinkInput = ({ name, id }: MessageMoveSinkInput['payload']) => {
+		updateVolStatus(draft => {
+			const app = draft?.apps.find(a => a.id === id)
+
+			const newOutputId = draft?.outputs.find(o => o.name === name)?.id
+
+			if (app && newOutputId) {
+				app.outputId = newOutputId
+			}
+		})
 		sendMessage({
 			action: Action.MoveSinkInput,
 			payload: { name, id },
