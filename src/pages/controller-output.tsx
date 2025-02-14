@@ -59,7 +59,11 @@ export const ControllerOutput: React.FC = () => {
 
 	return (
 		<Layout header={dict.headerOutput}>
-			<DndContext onDragStart={drag.onDragStart} onDragEnd={drag.onDragEnd}>
+			<DndContext //
+				sensors={drag.sensors}
+				onDragStart={drag.onDragStart}
+				onDragEnd={drag.onDragEnd}
+			>
 				<section className='flex flex-col gap-6 text-xl'>
 					{vol.volStatus?.outputs?.map(output => (
 						<Droppable key={output.id} id={output.name}>
