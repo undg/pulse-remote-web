@@ -55,9 +55,9 @@ make run
 
 ## Deployment
 
-Build output to [pulse-remote's](https://github.com/undg/pulse-remote) `/tmp/bin/pulse-remote-web/dist` folder.
+Build output to [pulse-remote's](https://github.com/undg/pulse-remote) `web/dist` folder.
 
-pulse-remote have `make build/fe` and `make build/full` command's that will pull this repo with frontend code and wire it with the backend.
+pulse-remote have `make build`  scripts that can pull this repo bundle it and wire it with the backend.
 
 pulse-remote serves WebSockets and static files.
 
