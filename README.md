@@ -16,17 +16,9 @@ Control Linux PC sound remotely from your phone.
   <img src="https://github.com/user-attachments/assets/e01ec214-d6e1-4ab4-ad9a-606330a04138" width="300" alt="Image2">
 </div>
 
-## Tech Stack
-
-- React, TypeScript, Vite
-- Jotai: state management
-- Zod: schema validation
-- Vitest: unit testing
-- Cypress: E2E testing
-- GitHub Actions: CI/CD
-- Tailwind CSS + Shadcn
-
 ## Development
+
+
 
 #### Spin FE server
 
@@ -37,7 +29,7 @@ pnpm install
 pnpm run dev
 ```
 
-IMPORTANT: You need to run [pulse-remote's](https://github.com/undg/pulse-remote) server
+IMPORTANT: You need to run [pulse-remote](https://github.com/undg/pulse-remote) server
 
 #### Spin BE server
 
@@ -57,7 +49,7 @@ make run
 
 ## Deployment
 
-Build output to [pulse-remote's](https://github.com/undg/pulse-remote) `web/dist` folder.
+Build output to [pulse-remote](https://github.com/undg/pulse-remote) `web/dist` folder.
 
 pulse-remote have `make build`  scripts that can pull this repo bundle it and wire it with the backend.
 
@@ -72,3 +64,14 @@ Stored in localStorage. Jotai + Zod ensure valid values.
 GitHub Actions enforce quality and tests.
 
 Clean code awaits smart devs.
+
+## Tech Stack
+
+- React, TypeScript, Vite
+- Jotai: state management
+- Zod: schema validation
+- Vitest: unit testing
+- Cypress: E2E testing
+- GitHub Actions: CI/CD
+- Tailwind CSS + Shadcn
+
