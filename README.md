@@ -1,11 +1,11 @@
-# pr-web
+# pulse-remote-web
 
-![Tests](https://github.com/undg/pr-web/actions/workflows/test.yml/badge.svg)
-![Code quality analysis](https://github.com/undg/pr-web/actions/workflows/codeql-analysis.yml/badge.svg)
+![Tests](https://github.com/undg/pulse-remote-web/actions/workflows/test.yml/badge.svg)
+![Code quality analysis](https://github.com/undg/pulse-remote-web/actions/workflows/codeql-analysis.yml/badge.svg)
 
 ## Pulse Remote Frontend
 
-React frontend for [go-prapi](https://github.com/undg/go-prapi) (v0.8.0) websocket server.
+Web UI interface for [pulse-remote](https://github.com/undg/pulse-remote) websocket server.
 
 Control Linux PC sound remotely from your phone.
 
@@ -29,19 +29,19 @@ Control Linux PC sound remotely from your phone.
 #### Spin FE server
 
 ```bash
-git clone https://github.com/undg/pr-web
-cd pr-web
+git clone https://github.com/undg/pulse-remote-web
+cd pulse-remote-web
 pnpm install
 pnpm run dev
 ```
 
-IMPORTANT: You need to run [go-prapi's](https://github.com/undg/go-prapi) server
+IMPORTANT: You need to run [pulse-remote's](https://github.com/undg/pulse-remote) server
 
 #### Spin BE server
 
 ```bash
-git clone https://github.com/undg/go-prapi
-cd go-prapi
+git clone https://github.com/undg/pulse-remote
+cd pulse-remote
 make run
 ```
 
@@ -55,11 +55,11 @@ make run
 
 ## Deployment
 
-Build output to [go-prapi's](https://github.com/undg/go-prapi) `/tmp/bin/pr-web/dist` folder.
+Build output to [pulse-remote's](https://github.com/undg/pulse-remote) `/tmp/bin/pulse-remote-web/dist` folder.
 
-go-prapi have `make build/fe` and `make build/full` command's that will pull this repo with frontend code and wire it with the backend.
+pulse-remote have `make build/fe` and `make build/full` command's that will pull this repo with frontend code and wire it with the backend.
 
-go-prapi serves WebSockets and static files.
+pulse-remote serves WebSockets and static files.
 
 ## Config
 
