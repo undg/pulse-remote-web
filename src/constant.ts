@@ -1,6 +1,11 @@
 export const THROTTLE_TIME = 300
 export const VIBRATE_TIME = 10
+export const RELEASE_OPTIMISTIC_TIME = 150
 
+/**
+ * Default configuration values for audio controls and other settings.
+ * Can be extended with additional configuration keys.
+ */
 export const def = {
 	VOLUME_STEP: 10,
 	/**

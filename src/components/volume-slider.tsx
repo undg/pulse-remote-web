@@ -1,11 +1,13 @@
 import { MinusCircleIcon, PlusCircleIcon, Volume, Volume1, Volume2, VolumeOff } from 'lucide-react'
 import { useConfig } from '../config/use-config'
-import { testid } from '../constant'
+import { RELEASE_OPTIMISTIC_TIME, testid } from '../constant'
 import { Button } from '../primitives/button'
 import { Slider } from '../primitives/slider'
 import { Toggle } from '../primitives/toggle'
 import { Small } from '../primitives/typography'
 import { cn } from '../utils/cn'
+import { volStatusBlockAtom } from '../api/use-vol-status'
+import { useAtom } from 'jotai'
 
 const getVolumeIcon = (volume: number, muted: boolean) => {
 	const size = '2em'
@@ -26,6 +28,9 @@ export const VolumeSlider: React.FC<{
 	onValueCommit?: (value: number[]) => void
 }> = props => {
 	const [config] = useConfig()
+
+	const [, setBlocked] = useAtom(volStatusBlockAtom)
+
 	const handleVolumeDown = () => {
 		const volume = props.volume
 		if (volume === config.minVolume) {
@@ -70,6 +75,19 @@ export const VolumeSlider: React.FC<{
 		props.onValueCommit?.([newVolume])
 	}
 
+	const handeleValueChange = (value: number[]) => {
+		props.onValueChange?.(value)
+		setBlocked(true)
+	}
+
+	const handleValueCommit = (value: number[]) => {
+		props.onValueCommit?.(value)
+		setTimeout(() => {
+			setBlocked(false)
+			props.onValueCommit?.(value)
+		}, RELEASE_OPTIMISTIC_TIME)
+	}
+
 	return (
 		<div
 			className={cn('grid items-center gap-x-1 gap-y-0', props.className)}
@@ -108,8 +126,8 @@ export const VolumeSlider: React.FC<{
 					max={config.maxVolume}
 					value={[props.volume]}
 					step={1}
-					onValueChange={props.onValueChange}
-					onValueCommit={props.onValueCommit}
+					onValueChange={handeleValueChange}
+					onValueCommit={handleValueCommit}
 				/>
 				<Button data-testid={testid.btnVolumeUp} variant={`ghost`} size='icon' onClick={handleVolumeUp}>
 					<PlusCircleIcon />

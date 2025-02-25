@@ -1,4 +1,4 @@
-import { atom } from 'jotai'
+import { atom, useAtomValue } from 'jotai'
 import { useAtomDevtools } from 'jotai-devtools'
 import { useImmerAtom } from 'jotai-immer'
 import { useEffect } from 'react'
@@ -20,17 +20,23 @@ import { debugAtom } from '../utils/debugAtom'
 export const volStatusAtom = atom<PrapiStatus>()
 debugAtom(volStatusAtom, 'volStatusAtom')
 
+export const volStatusBlockAtom = atom<boolean>()
+debugAtom(volStatusBlockAtom, 'volStatusAtom')
+
 export const useVolumeStatus = () => {
 	const [volStatus, updateVolStatus] = useImmerAtom(volStatusAtom)
 	useAtomDevtools(volStatusAtom)
 	const { lastMessage, sendMessage } = useWebSocketApi()
 
+	const blocked = useAtomValue(volStatusBlockAtom)
+
 	// It updates status when backend server broadcasts new state
 	useEffect(() => {
 		if (lastMessage && typeof lastMessage.data === 'string') {
 			const incomingMessage = JSON.parse(lastMessage.data) as IncomingMessage
+			console.log(blocked)
 			updateVolStatus(draft => {
-				if (incomingMessage.action === 'GetStatus' && Boolean(incomingMessage.payload)) {
+				if (!blocked && incomingMessage.action === 'GetStatus' && Boolean(incomingMessage.payload)) {
 					return incomingMessage.payload
 				}
 				return draft
