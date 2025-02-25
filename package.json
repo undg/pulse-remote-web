@@ -5,6 +5,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "vite build",
+    "bumb:patch": "./scripts/bump.sh patch",
+    "bumb:minor": "./scripts/bump.sh minor",
+    "bumb:main": "./scripts/bump.sh main",
     "dev": "vite",
     "prepare": "husky install",
     "preview": "vite preview",
