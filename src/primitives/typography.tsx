@@ -13,9 +13,7 @@ export const H1: FC<PropsWithChildren<{ className?: string }>> = props => {
 
 export const H2: FC<PropsWithChildren<{ className?: string }>> = props => {
 	return (
-		<h2
-			className={cn('first:mt- text-1xl mt-6 scroll-m-20 border-b pb-2 font-semibold tracking-tight', props.className)}
-		>
+		<h2 className={cn('first:mt- text-1xl mt-6 scroll-m-20 pb-2 font-semibold tracking-tight', props.className)}>
 			{props.children}
 		</h2>
 	)
