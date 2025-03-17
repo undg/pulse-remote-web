@@ -1,6 +1,5 @@
 # pulse-remote-web
 
-
 ![Tests](https://github.com/undg/pulse-remote-web/actions/workflows/test.yml/badge.svg)
 ![Code quality analysis](https://github.com/undg/pulse-remote-web/actions/workflows/codeql-analysis.yml/badge.svg)
 
@@ -10,15 +9,12 @@ Web UI interface for [pulse-remote](https://github.com/undg/pulse-remote) websoc
 
 Control Linux PC sound remotely from your phone.
 
-
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
   <img src="https://github.com/user-attachments/assets/4573dc38-7637-4612-8d66-f1fcf54afa50" width="300" alt="Image1">
   <img src="https://github.com/user-attachments/assets/e01ec214-d6e1-4ab4-ad9a-606330a04138" width="300" alt="Image2">
 </div>
 
 ## Development
-
-
 
 #### Spin FE server
 
@@ -51,7 +47,7 @@ make run
 
 Build output to [pulse-remote](https://github.com/undg/pulse-remote) `web/dist` folder.
 
-pulse-remote have `make build`  scripts that can pull this repo bundle it and wire it with the backend.
+pulse-remote have `make build` scripts that can pull this repo bundle it and wire it with the backend.
 
 pulse-remote serves WebSockets and static files.
 
@@ -74,4 +70,3 @@ Clean code awaits smart devs.
 - Cypress: E2E testing
 - GitHub Actions: CI/CD
 - Tailwind CSS + Shadcn
-
