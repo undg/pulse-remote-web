@@ -47,7 +47,7 @@ export const useVolumeStatus = () => {
 	const setSink = ({ name, volume }: MessageSetSinkVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
-				const sink = draft?.outputs?.find(s => s.name === name)
+				const sink = draft?.sinks?.find(s => s.name === name)
 				if (sink) {
 					sink.volume = volume
 				}
@@ -70,7 +70,7 @@ export const useVolumeStatus = () => {
 	const setSinkInput = ({ id, volume }: MessageSetSinkInputVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
-				const sink = draft?.apps?.find(s => s.id === id)
+				const sink = draft?.sinkInputs?.find(s => s.id === id)
 				if (sink) {
 					sink.volume = volume
 				}
@@ -92,12 +92,12 @@ export const useVolumeStatus = () => {
 
 	const moveSinkInput = ({ name, id }: MessageMoveSinkInput['payload']) => {
 		updateVolStatus(draft => {
-			const app = draft?.apps.find(a => a.id === id)
+			const app = draft?.sinkInputs.find(a => a.id === id)
 
-			const newOutputId = draft?.outputs.find(o => o.name === name)?.id
+			const newSinkId = draft?.sinks.find(o => o.name === name)?.id
 
-			if (app && newOutputId) {
-				app.outputId = newOutputId
+			if (app && newSinkId) {
+				app.sinkId = newSinkId
 			}
 		})
 		sendMessage({
@@ -108,7 +108,7 @@ export const useVolumeStatus = () => {
 
 	const toggleSinkMute = ({ name }: Pick<MessageSetSinkMuted['payload'], 'name'>) => {
 		updateVolStatus(draft => {
-			const sink = draft?.outputs?.find(s => s.name === name)
+			const sink = draft?.sinks?.find(s => s.name === name)
 			if (sink) {
 				sink.muted = !sink.muted
 			}
@@ -116,14 +116,14 @@ export const useVolumeStatus = () => {
 
 		sendMessage({
 			action: Action.SetSinkMuted,
-			payload: { name, muted: !volStatus?.outputs?.find(s => s.name === name)?.muted },
+			payload: { name, muted: !volStatus?.sinks?.find(s => s.name === name)?.muted },
 		})
 	}
 
 	const toggleSinkInputMute = ({ id }: Pick<MessageSetSinkInputMuted['payload'], 'id'>) => {
 		sendMessage({
 			action: Action.SetSinkInputMuted,
-			payload: { id, muted: !volStatus?.apps?.find(s => s.id === id)?.muted },
+			payload: { id, muted: !volStatus?.sinkInputs?.find(s => s.id === id)?.muted },
 		})
 	}
 

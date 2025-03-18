@@ -11,7 +11,7 @@ import { useDragSinkInput } from '../components/drag/use-drag'
 import { Droppable } from '../components/drag/droppable'
 import { Draggable } from '../components/drag/draggable'
 
-export const ControllerOutput: React.FC = () => {
+export const ControllerSinks: React.FC = () => {
 	const vol = useVolumeStatus()
 	const drag = useDragSinkInput(vol.moveSinkInput)
 
@@ -21,13 +21,13 @@ export const ControllerOutput: React.FC = () => {
 		return vol.setSink({ name, volume })
 	}
 
-	const throttledSinkHandler = useThrottledCallback((outputName: string, volume: number[]) => {
-		sinkVolume(outputName, volume).send()
+	const throttledSinkHandler = useThrottledCallback((sinkName: string, volume: number[]) => {
+		sinkVolume(sinkName, volume).send()
 	}, THROTTLE_TIME)
 
-	const handleSinkVolumeChange = (outputName: string, volume: number[]) => {
-		sinkVolume(outputName, volume).optimistic()
-		throttledSinkHandler(outputName, volume)
+	const handleSinkVolumeChange = (sinkName: string, volume: number[]) => {
+		sinkVolume(sinkName, volume).optimistic()
+		throttledSinkHandler(sinkName, volume)
 	}
 
 	// SINK mute toggle
@@ -58,45 +58,40 @@ export const ControllerOutput: React.FC = () => {
 	}
 
 	return (
-		<Layout header={dict.headerOutput}>
+		<Layout header={dict.headerSinks}>
 			<DndContext //
 				sensors={drag.sensors}
 				onDragStart={drag.onDragStart}
 				onDragEnd={drag.onDragEnd}
 			>
 				<section className='flex flex-col gap-6 text-xl'>
-					{vol.volStatus?.outputs?.map(output => (
-						<Droppable key={output.id} id={output.name}>
+					{vol.volStatus?.sinks?.map(sink => (
+						<Droppable key={sink.id} id={sink.name}>
 							<VolumeSlider
-								muted={output.muted}
-								volume={output.volume}
-								label={output.label}
-								onMuteChange={handleSinkMuteToggle(output.name)}
-								onValueChange={volume => handleSinkVolumeChange(output.name, volume)}
-								onValueCommit={volume => sinkVolume(output.name, volume).send()}
+								muted={sink.muted}
+								volume={sink.volume}
+								label={sink.label}
+								onMuteChange={handleSinkMuteToggle(sink.name)}
+								onValueChange={volume => handleSinkVolumeChange(sink.name, volume)}
+								onValueCommit={volume => sinkVolume(sink.name, volume).send()}
 							>
-								{vol.volStatus?.apps?.map(
-									app =>
-										app.outputId === output.id && (
-											<Fragment key={app.id}>
+								{vol.volStatus?.sinkInputs?.map(
+									si =>
+										si.sinkId === sink.id && (
+											<Fragment key={si.id}>
 												<div className={cn('mb-4 ml-[14px] flex h-full flex-col pt-1')}>
 													{/* tree-branch */}
-													<div
-														className={cn(
-															'h-full w-0 border-4 border-r-0 border-dotted border-foreground',
-															drag.activeId === app.id && 'opacity-30',
-														)}
-													/>
-													<Draggable id={app.id} className='ml-[-3px]' />
+													<TreeBranchUi active={drag.activeId === si.id} />
+													<Draggable id={si.id} className='ml-[-3px]' />
 												</div>
 												<VolumeSlider
-													className={cn(drag.activeId === app.id && 'opacity-30')}
-													muted={app.muted}
-													label={app.label}
-													volume={app.volume}
-													onMuteChange={handleSinkInputMuteToggle(app.id)}
-													onValueChange={volume => handleSinkInputVolumeChange(app.id, volume)}
-													onValueCommit={volume => sinkInputVolume(app.id, volume).send()}
+													className={cn(drag.activeId === si.id && 'opacity-30')}
+													muted={si.muted}
+													label={si.label}
+													volume={si.volume}
+													onMuteChange={handleSinkInputMuteToggle(si.id)}
+													onValueChange={volume => handleSinkInputVolumeChange(si.id, volume)}
+													onValueCommit={volume => sinkInputVolume(si.id, volume).send()}
 												/>
 											</Fragment>
 										),
@@ -109,3 +104,7 @@ export const ControllerOutput: React.FC = () => {
 		</Layout>
 	)
 }
+
+const TreeBranchUi: React.FC<{ active: boolean }> = props => (
+	<div className={cn('h-full w-0 border-4 border-r-0 border-dotted border-foreground', props.active && 'opacity-30')} />
+)

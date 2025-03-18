@@ -20,15 +20,15 @@ describe('<App />', () => {
 			'load home page',
 			async () => {
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerOutput)).resolves.toBeInTheDocument()
+				await expect(screen.findByText(dict.headerSinks)).resolves.toBeInTheDocument()
 			},
 		],
 		[
-			'go to input',
+			'go to sources',
 			async () => {
-				await userEvent.click(screen.getByTestId(testid.gotoInputDevices))
+				await userEvent.click(screen.getByTestId(testid.gotoSourcesPage))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerInput)).resolves.toBeInTheDocument()
+				await expect(screen.findByText(dict.headerSources)).resolves.toBeInTheDocument()
 			},
 		],
 		[
@@ -48,11 +48,11 @@ describe('<App />', () => {
 			},
 		],
 		[
-			'go to output devices',
+			'go to sinks devices',
 			async () => {
-				await userEvent.click(screen.getByTestId(testid.gotoOutputDevices))
+				await userEvent.click(screen.getByTestId(testid.gotoSinksPage))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerOutput)).resolves.toBeInTheDocument()
+				await expect(screen.findByText(dict.headerSinks)).resolves.toBeInTheDocument()
 			},
 		],
 	])('%s', async (_, test) => await test())

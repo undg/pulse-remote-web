@@ -6,7 +6,7 @@ import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
 import { dict } from '../dict'
 import { useThrottledCallback } from '../utils/use-throttled-callback'
 
-export const ControllerInput: React.FC = () => {
+export const ControllerSources: React.FC = () => {
 	const vol = useVolumeStatus()
 	const [config] = useConfig()
 
@@ -35,7 +35,7 @@ export const ControllerInput: React.FC = () => {
 		config.showMonitoredSources || (!config.showMonitoredSources && !sourceMonitored)
 
 	return (
-		<Layout header={dict.headerInput}>
+		<Layout header={dict.headerSources}>
 			<section className='flex flex-col gap-6 text-xl'>
 				{vol.volStatus?.sources?.map(
 					source =>

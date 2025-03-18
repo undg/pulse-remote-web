@@ -16,10 +16,10 @@ export const TopNav: FC = () => {
 	return (
 		<nav className='mb-8 flex flex-wrap-reverse justify-between gap-4'>
 			<div className='flex justify-between gap-2'>
-				<ButtonNavLink to={routes.home} testid={testid.gotoOutputDevices}>
+				<ButtonNavLink to={routes.sinks} testid={testid.gotoSinksPage}>
 					<Volume2 />
 				</ButtonNavLink>
-				<ButtonNavLink to={routes.input} testid={testid.gotoInputDevices}>
+				<ButtonNavLink to={routes.sources} testid={testid.gotoSourcesPage}>
 					<Mic />
 				</ButtonNavLink>
 			</div>

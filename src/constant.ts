@@ -21,8 +21,8 @@ export const testid = {
 	loadingOrError: 'loading-or-error',
 
 	// navbar
-	gotoOutputDevices: 'goto-output-devices',
-	gotoInputDevices: 'goto-input-devices',
+	gotoSinksPage: 'goto-sinks-page',
+	gotoSourcesPage: 'goto-sources-page',
 	gotoAbout: 'goto-about',
 	gotoConfig: 'goto-config',
 
