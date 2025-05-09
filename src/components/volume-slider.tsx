@@ -8,6 +8,7 @@ import { Small } from '../primitives/typography'
 import { cn } from '../utils/cn'
 import { volStatusBlockAtom } from '../api/use-vol-status'
 import { useAtom } from 'jotai'
+import { SliderProps } from '@radix-ui/react-slider'
 
 const getVolumeIcon = (volume: number, muted: boolean) => {
 	const size = '2em'
@@ -39,15 +40,13 @@ export const VolumeSlider: React.FC<{
 
 		let newVolume = volume - config.stepVolume
 
-		if (volume < config.minVolume) {
+		const isMin = volume < config.minVolume || volume < config.stepVolume
+		if (isMin) {
 			newVolume = config.minVolume
 		}
 
-		if (volume < config.stepVolume) {
-			newVolume = config.minVolume
-		}
-
-		if (volume > config.maxVolume) {
+		const isMax = volume > config.maxVolume
+		if (isMax) {
 			newVolume = config.maxVolume
 		}
 
@@ -63,11 +62,13 @@ export const VolumeSlider: React.FC<{
 
 		let newVolume = volume + config.stepVolume
 
-		if (volume > config.maxVolume - config.stepVolume) {
+		const isMax = volume > config.maxVolume - config.stepVolume
+		if (isMax) {
 			newVolume = config.maxVolume
 		}
 
-		if (volume < config.minVolume) {
+		const isMin = volume < config.minVolume
+		if (isMin) {
 			newVolume = config.minVolume
 		}
 
@@ -75,17 +76,25 @@ export const VolumeSlider: React.FC<{
 		props.onValueCommit?.([newVolume])
 	}
 
-	const handeleValueChange = (value: number[]) => {
+	const handeleValueChange: SliderProps['onValueChange'] = value => {
 		props.onValueChange?.(value)
 		setBlocked(true)
 	}
 
-	const handleValueCommit = (value: number[]) => {
+	const handleValueCommit: SliderProps['onValueCommit'] = value => {
 		props.onValueCommit?.(value)
 		setTimeout(() => {
 			setBlocked(false)
 			props.onValueCommit?.(value)
 		}, RELEASE_OPTIMISTIC_TIME)
+	}
+
+	const handleWheel: SliderProps['onWheel'] = e => {
+		if (e.deltaY > 0) {
+			handleVolumeDown()
+		} else {
+			handleVolumeUp()
+		}
 	}
 
 	return (
@@ -128,6 +137,7 @@ export const VolumeSlider: React.FC<{
 					step={1}
 					onValueChange={handeleValueChange}
 					onValueCommit={handleValueCommit}
+					onWheel={handleWheel}
 				/>
 				<Button data-testid={testid.btnVolumeUp} variant={`ghost`} size='icon' onClick={handleVolumeUp}>
 					<PlusCircleIcon />

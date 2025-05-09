@@ -34,7 +34,6 @@ export const useVolumeStatus = () => {
 	useEffect(() => {
 		if (lastMessage && typeof lastMessage.data === 'string') {
 			const incomingMessage = JSON.parse(lastMessage.data) as IncomingMessage
-			console.log(blocked)
 			updateVolStatus(draft => {
 				if (!blocked && incomingMessage.action === 'GetStatus' && Boolean(incomingMessage.payload)) {
 					return incomingMessage.payload

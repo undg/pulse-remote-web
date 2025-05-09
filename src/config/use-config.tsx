@@ -12,7 +12,7 @@ export const defaultConfig: Config = {
 	serverUrl: `ws://${window.location.hostname}:8448/api/v1/ws`,
 	minVolume: 0,
 	maxVolume: 150,
-	stepVolume: 10,
+	stepVolume: 5,
 	showMonitoredSources: true,
 } as const
 
