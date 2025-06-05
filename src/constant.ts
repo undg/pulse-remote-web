@@ -7,7 +7,7 @@ export const RELEASE_OPTIMISTIC_TIME = 150
  * Can be extended with additional configuration keys.
  */
 export const def = {
-	VOLUME_STEP: 10,
+	VOLUME_STEP: 5,
 	/**
 	 * Max volume 150 is 150%. Although you can set it as loud as you like,
 	 * value above 200 (200%) can damage your speakers.
