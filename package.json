@@ -57,7 +57,7 @@
     "react-use-websocket": "4.13.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vite-plugin-pwa": "^0.20.5",
+    "vite-plugin-pwa": "^0.21.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
