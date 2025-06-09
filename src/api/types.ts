@@ -1,5 +1,5 @@
 import { Action } from '../generated/message'
-import { App, Output, PrapiStatus, Source } from '../generated/status'
+import { SinkInput, Sink, PrapiStatus, Source } from '../generated/status'
 
 // @TODO (undg) 2024-09-19: generate those types on the BE or generate them from GetSchema API provided by the server.
 type ActionIn = 'GetStatus'
@@ -29,29 +29,29 @@ export type MessageGetBuildInfo = {
 //////////////////////////////////////////////////////////////////
 export type MessageSetSinkVolume = {
 	action: Action.SetSinkVolume
-	payload: { name: Output['name']; volume: Output['volume'] }
+	payload: { name: Sink['name']; volume: Sink['volume'] }
 }
 
 export type MessageSetSinkMuted = {
 	action: Action.SetSinkMuted
-	payload: { name: Output['name']; muted: Output['muted'] }
+	payload: { name: Sink['name']; muted: Sink['muted'] }
 }
 
 // [SinkInput] APPs playing audio
 //////////////////////////////////////////////////////////////////
 export type MessageSetSinkInputVolume = {
 	action: Action.SetSinkInputVolume
-	payload: { id: App['id']; volume: App['volume'] }
+	payload: { id: SinkInput['id']; volume: SinkInput['volume'] }
 }
 
 export type MessageSetSinkInputMuted = {
 	action: Action.SetSinkInputMuted
-	payload: { id: App['id']; muted: App['muted'] }
+	payload: { id: SinkInput['id']; muted: SinkInput['muted'] }
 }
 
 export type MessageMoveSinkInput = {
 	action: Action.MoveSinkInput
-	payload: { name: Output['name']; id: App['id'] }
+	payload: { name: Sink['name']; id: SinkInput['id'] }
 }
 
 // [Source] Microphones and recording devices

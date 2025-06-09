@@ -1,43 +1,20 @@
 export interface PrapiStatus {
 	/**
-	 * List of applications
-	 */
-	apps: App[]
-	/**
 	 * Build information
 	 */
 	buildInfo: BuildInfo
 	/**
-	 * List of output devices
+	 * List of applications that are playing audio
 	 */
-	outputs: Output[]
+	sinkInputs: SinkInput[]
+	/**
+	 * List of audio devices
+	 */
+	sinks: Sink[]
 	/**
 	 * List of microphones and other sources
 	 */
 	sources: Source[]
-}
-
-export interface App {
-	/**
-	 * The id of the sink. Same  as name
-	 */
-	id: number
-	/**
-	 * Human-readable label for the sink
-	 */
-	label: string
-	/**
-	 * Whether the sink is muted
-	 */
-	muted: boolean
-	/**
-	 * Id of parrent device, same as output.id
-	 */
-	outputId: number
-	/**
-	 * Current volume level of the sink
-	 */
-	volume: number
 }
 
 /**
@@ -70,7 +47,30 @@ export interface BuildInfo {
 	platform: string
 }
 
-export interface Output {
+export interface SinkInput {
+	/**
+	 * The id of the sink. Same  as name
+	 */
+	id: number
+	/**
+	 * Human-readable label for the sink
+	 */
+	label: string
+	/**
+	 * Whether the sink is muted
+	 */
+	muted: boolean
+	/**
+	 * Id of parrent device, same as sink.id
+	 */
+	sinkId: number
+	/**
+	 * Current volume level of the sink
+	 */
+	volume: number
+}
+
+export interface Sink {
 	/**
 	 * The id of the sink. Same  as name
 	 */
@@ -103,7 +103,7 @@ export interface Source {
 	 */
 	label: string
 	/**
-	 * Name of monitor source capturing this source's output
+	 * Name of monitor source
 	 */
 	monitor: string
 	/**

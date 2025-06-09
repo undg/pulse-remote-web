@@ -1,7 +1,7 @@
 export const dict = {
 	appName: 'PulseRemote',
-	headerInput: 'Input',
-	headerOutput: 'Output',
+	headerSinks: 'Sinks',
+	headerSources: 'Sources',
 	headerAbout: 'About',
 	headerConfig: 'Config',
 } as const

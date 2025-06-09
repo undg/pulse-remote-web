@@ -7,8 +7,8 @@ describe('Basic flow', () => {
 		cy.visit('/')
 	})
 
-	it(`should have output button`, () => {
+	it(`should have sinks button`, () => {
 		cy.visit('/')
-		cy.findByTestId('goto-output-devices').should('exist')
+		cy.findByTestId('goto-sinks-page').should('exist')
 	})
 })
