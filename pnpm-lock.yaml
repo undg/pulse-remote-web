@@ -49,7 +49,7 @@ importers:
         version: 2.12.5(@types/react@18.3.23)(react@18.3.1)
       jotai-devtools:
         specifier: ^0.12.0
-        version: 0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.0))
+        version: 0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.1))
       jotai-immer:
         specifier: ^0.4.1
         version: 0.4.1(immer@10.1.1)(jotai@2.12.5(@types/react@18.3.23)(react@18.3.1))
@@ -214,11 +214,11 @@ importers:
         specifier: 8.5.6
         version: 8.5.6
       prettier:
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.6.1
+        version: 3.6.1
       prettier-plugin-tailwindcss:
         specifier: 0.6.13
-        version: 0.6.13(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.0))(prettier-plugin-organize-imports@4.1.0(prettier@3.6.0)(typescript@5.8.3))(prettier@3.6.0)
+        version: 0.6.13(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.1))(prettier-plugin-organize-imports@4.1.0(prettier@3.6.1)(typescript@5.8.3))(prettier@3.6.1)
       quicktype:
         specifier: ^23.0.170
         version: 23.2.6
@@ -4610,8 +4610,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.6.0:
-    resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
+  prettier@3.6.1:
+    resolution: {integrity: sha512-5xGWRa90Sp2+x1dQtNpIpeOQpTDBs9cZDmA/qs2vDNN2i18PdapqY7CmBeyLlMuGqXJRIOPaCaVZTLNQRWUH/A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6977,14 +6977,14 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.2': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.0)':
+  '@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.1)':
     dependencies:
       '@babel/core': 7.27.4
       '@babel/generator': 7.27.5
       '@babel/parser': 7.27.5
       '@babel/traverse': 7.27.4
       '@babel/types': 7.27.6
-      prettier: 3.6.0
+      prettier: 3.6.1
       semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
@@ -7397,9 +7397,9 @@ snapshots:
 
   '@sideway/pinpoint@2.0.0': {}
 
-  '@storybook/core@8.6.12(prettier@3.6.0)(storybook@8.6.12(prettier@3.6.0))':
+  '@storybook/core@8.6.12(prettier@3.6.1)(storybook@8.6.12(prettier@3.6.1))':
     dependencies:
-      '@storybook/theming': 8.6.12(storybook@8.6.12(prettier@3.6.0))
+      '@storybook/theming': 8.6.12(storybook@8.6.12(prettier@3.6.1))
       better-opn: 3.0.2
       browser-assert: 1.2.1
       esbuild: 0.25.5
@@ -7411,7 +7411,7 @@ snapshots:
       util: 0.12.5
       ws: 8.18.2
     optionalDependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
     transitivePeerDependencies:
       - bufferutil
       - storybook
@@ -7420,26 +7420,26 @@ snapshots:
 
   '@storybook/global@5.0.0': {}
 
-  '@storybook/instrumenter@8.6.12(storybook@8.6.12(prettier@3.6.0))':
+  '@storybook/instrumenter@8.6.12(storybook@8.6.12(prettier@3.6.1))':
     dependencies:
       '@storybook/global': 5.0.0
       '@vitest/utils': 2.1.9
-      storybook: 8.6.12(prettier@3.6.0)
+      storybook: 8.6.12(prettier@3.6.1)
 
-  '@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.0))':
+  '@storybook/test@8.6.12(storybook@8.6.12(prettier@3.6.1))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.6.12(storybook@8.6.12(prettier@3.6.0))
+      '@storybook/instrumenter': 8.6.12(storybook@8.6.12(prettier@3.6.1))
       '@testing-library/dom': 10.4.0
       '@testing-library/jest-dom': 6.5.0
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 8.6.12(prettier@3.6.0)
+      storybook: 8.6.12(prettier@3.6.1)
 
-  '@storybook/theming@8.6.12(storybook@8.6.12(prettier@3.6.0))':
+  '@storybook/theming@8.6.12(storybook@8.6.12(prettier@3.6.1))':
     dependencies:
-      storybook: 8.6.12(prettier@3.6.0)
+      storybook: 8.6.12(prettier@3.6.1)
 
   '@surma/rollup-plugin-off-main-thread@2.2.3':
     dependencies:
@@ -10050,13 +10050,13 @@ snapshots:
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
 
-  jotai-devtools@0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.0)):
+  jotai-devtools@0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.1)):
     dependencies:
       '@mantine/code-highlight': 7.17.5(@mantine/core@7.17.5(@mantine/hooks@7.17.5(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.17.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/core': 7.17.5(@mantine/hooks@7.17.5(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/hooks': 7.17.5(react@18.3.1)
       '@redux-devtools/extension': 3.3.0(redux@5.0.1)
-      '@storybook/test': 8.6.12(storybook@8.6.12(prettier@3.6.0))
+      '@storybook/test': 8.6.12(storybook@8.6.12(prettier@3.6.1))
       clsx: 2.1.1
       javascript-stringify: 2.1.0
       jotai: 2.12.5(@types/react@18.3.23)(react@18.3.1)
@@ -10698,20 +10698,20 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-organize-imports@4.1.0(prettier@3.6.0)(typescript@5.8.3):
+  prettier-plugin-organize-imports@4.1.0(prettier@3.6.1)(typescript@5.8.3):
     dependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
       typescript: 5.8.3
     optional: true
 
-  prettier-plugin-tailwindcss@0.6.13(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.0))(prettier-plugin-organize-imports@4.1.0(prettier@3.6.0)(typescript@5.8.3))(prettier@3.6.0):
+  prettier-plugin-tailwindcss@0.6.13(@ianvs/prettier-plugin-sort-imports@4.3.1(prettier@3.6.1))(prettier-plugin-organize-imports@4.1.0(prettier@3.6.1)(typescript@5.8.3))(prettier@3.6.1):
     dependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.3.1(prettier@3.6.0)
-      prettier-plugin-organize-imports: 4.1.0(prettier@3.6.0)(typescript@5.8.3)
+      '@ianvs/prettier-plugin-sort-imports': 4.3.1(prettier@3.6.1)
+      prettier-plugin-organize-imports: 4.1.0(prettier@3.6.1)(typescript@5.8.3)
 
-  prettier@3.6.0: {}
+  prettier@3.6.1: {}
 
   pretty-bytes@5.6.0: {}
 
@@ -11328,11 +11328,11 @@ snapshots:
       es-errors: 1.3.0
       internal-slot: 1.1.0
 
-  storybook@8.6.12(prettier@3.6.0):
+  storybook@8.6.12(prettier@3.6.1):
     dependencies:
-      '@storybook/core': 8.6.12(prettier@3.6.0)(storybook@8.6.12(prettier@3.6.0))
+      '@storybook/core': 8.6.12(prettier@3.6.1)(storybook@8.6.12(prettier@3.6.1))
     optionalDependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
