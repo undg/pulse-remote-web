@@ -169,8 +169,8 @@ importers:
         specifier: 18.0.0
         version: 18.0.0(@typescript-eslint/eslint-plugin@8.37.0(@typescript-eslint/parser@8.37.0(eslint@9.31.0(jiti@1.21.6))(typescript@5.8.3))(eslint@9.31.0(jiti@1.21.6))(typescript@5.8.3))(@typescript-eslint/parser@8.37.0(eslint@9.31.0(jiti@1.21.6))(typescript@5.8.3))(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.37.0(eslint@9.31.0(jiti@1.21.6))(typescript@5.8.3))(eslint@9.31.0(jiti@1.21.6)))(eslint@9.31.0(jiti@1.21.6))
       eslint-config-prettier:
-        specifier: 9.1.0
-        version: 9.1.0(eslint@9.31.0(jiti@1.21.6))
+        specifier: 9.1.1
+        version: 9.1.1(eslint@9.31.0(jiti@1.21.6))
       eslint-plugin-cypress:
         specifier: 4.3.0
         version: 4.3.0(eslint@9.31.0(jiti@1.21.6))
@@ -2992,8 +2992,9 @@ packages:
       eslint-plugin-react: ^7.28.0
       eslint-plugin-react-hooks: ^4.3.0
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@9.1.1:
+    resolution: {integrity: sha512-jeeI5lD4PrC1NPaugxD+JcFvelVATpVMRyK7MoW/QPLlwDjvZoOwq39SDRdiKzYIOjPG6nxOeXRHk3cFYj/psg==}
+    deprecated: This is a malicious version, don't use
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -9191,7 +9192,7 @@ snapshots:
       object.assign: 4.1.3
       object.entries: 1.1.5
 
-  eslint-config-prettier@9.1.0(eslint@9.31.0(jiti@1.21.6)):
+  eslint-config-prettier@9.1.1(eslint@9.31.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.31.0(jiti@1.21.6)
 
