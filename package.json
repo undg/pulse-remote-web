@@ -98,7 +98,7 @@
     "eslint-plugin-testing-library": "7.6.3",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "9.1.7",
-    "lint-staged": "16.1.4",
+    "lint-staged": "16.1.5",
     "jsdom": "26.1.0",
     "msw": "2.10.4",
     "npm-run-all2": "7.0.2",
