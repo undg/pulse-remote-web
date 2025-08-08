@@ -46,13 +46,13 @@ importers:
         version: 10.1.1
       jotai:
         specifier: ^2.9.3
-        version: 2.12.5(@types/react@18.3.23)(react@18.3.1)
+        version: 2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1)
       jotai-devtools:
         specifier: ^0.12.0
-        version: 0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.2))
+        version: 0.12.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.2))
       jotai-immer:
         specifier: ^0.4.1
-        version: 0.4.1(immer@10.1.1)(jotai@2.12.5(@types/react@18.3.23)(react@18.3.1))
+        version: 0.4.1(immer@10.1.1)(jotai@2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1))
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -2579,8 +2579,8 @@ packages:
     resolution: {integrity: sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==}
     engines: {node: '>=18'}
 
-  core-js-compat@3.44.0:
-    resolution: {integrity: sha512-JepmAj2zfl6ogy34qfWtcE7nHKAJnKsQFRn++scjVS2bZFllwptzw61BZcZFYBPpUznLfAvh0LGhxKppk04ClA==}
+  core-js-compat@3.45.0:
+    resolution: {integrity: sha512-gRoVMBawZg0OnxaVv3zpqLLxaHmsubEGyTnqdpI/CEBvX4JadI1dMSHxagThprYRtSVbuQxvi6iUatdPxohHpA==}
 
   core-util-is@1.0.2:
     resolution: {integrity: sha512-3lqz5YjWTYnW6dlDa5TLaTCcShfar1e40rmcJVwCBJC6mWlFuj0eCHIElmG1g5kyuJ/GD+8Wn4FFCcz4gJPfaQ==}
@@ -3834,8 +3834,8 @@ packages:
   jackspeak@3.4.3:
     resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
 
-  jake@10.9.2:
-    resolution: {integrity: sha512-2P4SQ0HrLQ+fw6llpLnOaGAvN2Zu6778SJMrCUwns4fOoG9ayrTiZk3VV8sCPkVZF8ab0zksVpS8FDY5pRCNBA==}
+  jake@10.9.4:
+    resolution: {integrity: sha512-wpHYzhxiVQL+IV05BLE2Xn34zW1S223hvjtqk0+gsPrwd/8JNLXJgZZM/iPFsYc1xyphF+6M6EvdE5E9MBGkDA==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -3861,13 +3861,19 @@ packages:
       immer: '>=9.0.0'
       jotai: '>=2.0.0'
 
-  jotai@2.12.5:
-    resolution: {integrity: sha512-G8m32HW3lSmcz/4mbqx0hgJIQ0ekndKWiYP7kWVKi0p6saLXdSoye+FZiOFyonnd7Q482LCzm8sMDl7Ar1NWDw==}
+  jotai@2.13.0:
+    resolution: {integrity: sha512-H43zXdanNTdpfOEJ4NVbm4hgmrctpXLZagjJNcqAywhUv+sTE7esvFjwm5oBg/ywT9Qw63lIkM6fjrhFuW8UDg==}
     engines: {node: '>=12.20.0'}
     peerDependencies:
+      '@babel/core': '>=7.0.0'
+      '@babel/template': '>=7.0.0'
       '@types/react': '>=17.0.0'
       react: '>=17.0.0'
     peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
       '@types/react':
         optional: true
       react:
@@ -6628,7 +6634,7 @@ snapshots:
       babel-plugin-polyfill-corejs2: 0.4.14(@babel/core@7.28.0)
       babel-plugin-polyfill-corejs3: 0.13.0(@babel/core@7.28.0)
       babel-plugin-polyfill-regenerator: 0.6.5(@babel/core@7.28.0)
-      core-js-compat: 3.44.0
+      core-js-compat: 3.45.0
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
@@ -8171,7 +8177,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.0
       '@babel/helper-define-polyfill-provider': 0.6.5(@babel/core@7.28.0)
-      core-js-compat: 3.44.0
+      core-js-compat: 3.45.0
     transitivePeerDependencies:
       - supports-color
 
@@ -8453,7 +8459,7 @@ snapshots:
 
   cookie@1.0.2: {}
 
-  core-js-compat@3.44.0:
+  core-js-compat@3.45.0:
     dependencies:
       browserslist: 4.25.1
 
@@ -8682,7 +8688,7 @@ snapshots:
 
   ejs@3.1.10:
     dependencies:
-      jake: 10.9.2
+      jake: 10.9.4
 
   electron-to-chromium@1.5.183: {}
 
@@ -10043,12 +10049,11 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
-  jake@10.9.2:
+  jake@10.9.4:
     dependencies:
       async: 3.2.6
-      chalk: 4.1.2
       filelist: 1.0.4
-      minimatch: 3.1.2
+      picocolors: 1.1.1
 
   javascript-stringify@2.1.0: {}
 
@@ -10062,7 +10067,7 @@ snapshots:
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
 
-  jotai-devtools@0.12.0(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.2)):
+  jotai-devtools@0.12.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.6.2)):
     dependencies:
       '@mantine/code-highlight': 7.17.5(@mantine/core@7.17.5(@mantine/hooks@7.17.5(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.17.5(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/core': 7.17.5(@mantine/hooks@7.17.5(react@18.3.1))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10071,7 +10076,7 @@ snapshots:
       '@storybook/test': 8.6.12(storybook@8.6.12(prettier@3.6.2))
       clsx: 2.1.1
       javascript-stringify: 2.1.0
-      jotai: 2.12.5(@types/react@18.3.23)(react@18.3.1)
+      jotai: 2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1)
       jsondiffpatch: 0.5.0
       react: 18.3.1
       react-base16-styling: 0.9.1
@@ -10079,18 +10084,22 @@ snapshots:
       react-json-tree: 0.18.0(@types/react@18.3.23)(react@18.3.1)
       react-resizable-panels: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
+      - '@babel/core'
+      - '@babel/template'
       - '@types/react'
       - react-dom
       - redux
       - storybook
 
-  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.12.5(@types/react@18.3.23)(react@18.3.1)):
+  jotai-immer@0.4.1(immer@10.1.1)(jotai@2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1)):
     dependencies:
       immer: 10.1.1
-      jotai: 2.12.5(@types/react@18.3.23)(react@18.3.1)
+      jotai: 2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1)
 
-  jotai@2.12.5(@types/react@18.3.23)(react@18.3.1):
+  jotai@2.13.0(@babel/core@7.27.4)(@babel/template@7.27.2)(@types/react@18.3.23)(react@18.3.1):
     optionalDependencies:
+      '@babel/core': 7.27.4
+      '@babel/template': 7.27.2
       '@types/react': 18.3.23
       react: 18.3.1
 
