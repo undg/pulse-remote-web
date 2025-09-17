@@ -223,8 +223,8 @@ importers:
         specifier: ^23.0.170
         version: 23.2.6
       start-server-and-test:
-        specifier: 2.1.0
-        version: 2.1.0
+        specifier: 2.1.1
+        version: 2.1.1
       stylelint:
         specifier: 16.24.0
         version: 16.24.0(typescript@5.9.2)
@@ -5194,8 +5194,8 @@ packages:
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
 
-  start-server-and-test@2.1.0:
-    resolution: {integrity: sha512-yJg/GR9z7+8qxhZqDPmCEKbU/BO/zpyXUZGLmY1Nv4rmJJDC89NnzIEUWXEG4e1J4MRFoDF50eJK8bGHKrSdlg==}
+  start-server-and-test@2.1.1:
+    resolution: {integrity: sha512-5RIIrYAsNnauKHCNVYNR8YMczqWM6s+n4vMHTMBbDtObeZr4q1nbRB4fmrnl0dqTWSAqBeE6sxrr2/7EuDtQQQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -6107,7 +6107,7 @@ snapshots:
       '@babel/traverse': 7.27.4
       '@babel/types': 7.27.6
       convert-source-map: 2.0.0
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -6835,7 +6835,7 @@ snapshots:
       '@babel/parser': 7.28.0
       '@babel/template': 7.27.2
       '@babel/types': 7.28.1
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -6848,7 +6848,7 @@ snapshots:
       '@babel/parser': 7.28.0
       '@babel/template': 7.27.2
       '@babel/types': 7.28.1
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -8397,9 +8397,9 @@ snapshots:
 
   axe-core@4.10.0: {}
 
-  axios@1.11.0(debug@4.4.1):
+  axios@1.11.0(debug@4.4.3):
     dependencies:
-      follow-redirects: 1.15.6(debug@4.4.1)
+      follow-redirects: 1.15.6(debug@4.4.3)
       form-data: 4.0.4
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
@@ -9678,9 +9678,9 @@ snapshots:
 
   flatted@3.3.3: {}
 
-  follow-redirects@1.15.6(debug@4.4.1):
+  follow-redirects@1.15.6(debug@4.4.3):
     optionalDependencies:
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
 
   for-each@0.3.3:
     dependencies:
@@ -11593,16 +11593,16 @@ snapshots:
 
   stackback@0.0.2: {}
 
-  start-server-and-test@2.1.0:
+  start-server-and-test@2.1.1:
     dependencies:
       arg: 5.0.2
       bluebird: 3.7.2
       check-more-types: 2.24.0
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
       execa: 5.1.1
       lazy-ass: 1.6.0
       ps-tree: 1.2.0
-      wait-on: 8.0.4(debug@4.4.1)
+      wait-on: 8.0.4(debug@4.4.3)
     transitivePeerDependencies:
       - supports-color
 
@@ -12271,7 +12271,7 @@ snapshots:
   vite-node@3.2.4(@types/node@22.7.8)(terser@5.44.0):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
       vite: 5.4.20(@types/node@22.7.8)(terser@5.44.0)
@@ -12350,9 +12350,9 @@ snapshots:
     dependencies:
       xml-name-validator: 5.0.0
 
-  wait-on@8.0.4(debug@4.4.1):
+  wait-on@8.0.4(debug@4.4.3):
     dependencies:
-      axios: 1.11.0(debug@4.4.1)
+      axios: 1.11.0(debug@4.4.3)
       joi: 17.13.3
       lodash: 4.17.21
       minimist: 1.2.8
