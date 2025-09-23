@@ -101,7 +101,7 @@ importers:
         version: 0.5.10(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.7.8)(typescript@5.9.2)))
       '@testing-library/cypress':
         specifier: 10.1.0
-        version: 10.1.0(cypress@15.2.0)
+        version: 10.1.0(cypress@15.3.0)
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -154,8 +154,8 @@ importers:
         specifier: 0.1.2
         version: 0.1.2
       cypress:
-        specifier: 15.2.0
-        version: 15.2.0
+        specifier: 15.3.0
+        version: 15.3.0
       eslint:
         specifier: 9.36.0
         version: 9.36.0(jiti@1.21.6)
@@ -2016,6 +2016,9 @@ packages:
   '@types/statuses@2.0.4':
     resolution: {integrity: sha512-eqNDvZsCNY49OAXB0Firg/Sc2BgoWsntsLUdybGFOhAfCD6QJ2n9HXUIHGqt5qjrxmMv4wS8WLAw43ZkKcJ8Pw==}
 
+  '@types/tmp@0.2.6':
+    resolution: {integrity: sha512-chhaNf2oKHlRkDGt+tiKE2Z5aJ6qalm7Z9rlLdBwmOiAAf09YQvvoLXjWK4HWPF1xU/fqvMgfNfpVoBscA/tKA==}
+
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
 
@@ -2706,9 +2709,9 @@ packages:
   csstype@3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
 
-  cypress@15.2.0:
-    resolution: {integrity: sha512-J4ehSzOSb58SkXyldCe9y/oZ8ep8Bl6+q9kDUjnkqNqc2ZKzDq5KSbhIc2lHFAFR5Jtj10oNqr9JRAZbr8DA8A==}
-    engines: {node: ^20.0.0 || ^22.0.0 || >=24.0.0}
+  cypress@15.3.0:
+    resolution: {integrity: sha512-g9rDhoK9y8wW4Vx3Ppr8dtfvThXxPL3mJsV5e98fG+6EerrhXKmeRT2sL86cvNRtEZouXJfsuVL1lqiMuGNGcg==}
+    engines: {node: ^20.1.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
 
   damerau-levenshtein@1.0.8:
@@ -6091,7 +6094,7 @@ snapshots:
       '@babel/traverse': 7.28.0
       '@babel/types': 7.28.1
       convert-source-map: 2.0.0
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -7358,7 +7361,7 @@ snapshots:
     dependencies:
       '@types/eslint': 8.21.1
       chalk: 4.1.2
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       eslint: 9.36.0(jiti@1.21.6)
       vite: 5.4.20(@types/node@22.7.8)(terser@5.44.0)
     transitivePeerDependencies:
@@ -7699,11 +7702,11 @@ snapshots:
       '@tanstack/query-core': 5.90.2
       react: 18.3.1
 
-  '@testing-library/cypress@10.1.0(cypress@15.2.0)':
+  '@testing-library/cypress@10.1.0(cypress@15.3.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
-      cypress: 15.2.0
+      cypress: 15.3.0
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -7879,6 +7882,8 @@ snapshots:
 
   '@types/statuses@2.0.4': {}
 
+  '@types/tmp@0.2.6': {}
+
   '@types/trusted-types@2.0.7': {}
 
   '@types/yauzl@2.10.0':
@@ -7994,7 +7999,7 @@ snapshots:
   '@vitest/coverage-istanbul@3.2.4(vitest@3.2.4(@types/node@22.7.8)(jsdom@27.0.0(postcss@8.5.6))(msw@2.11.3(@types/node@22.7.8)(typescript@5.9.2))(terser@5.44.0))':
     dependencies:
       '@istanbuljs/schema': 0.1.3
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       istanbul-lib-coverage: 3.2.2
       istanbul-lib-instrument: 6.0.3
       istanbul-lib-report: 3.0.1
@@ -8687,26 +8692,26 @@ snapshots:
 
   csstype@3.1.0: {}
 
-  cypress@15.2.0:
+  cypress@15.3.0:
     dependencies:
       '@cypress/request': 3.0.9
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
       '@types/sinonjs__fake-timers': 8.1.1
       '@types/sizzle': 2.3.3
+      '@types/tmp': 0.2.6
       arch: 2.2.0
       blob-util: 2.0.2
       bluebird: 3.7.2
       buffer: 5.7.1
       cachedir: 2.3.0
       chalk: 4.1.2
-      check-more-types: 2.24.0
       ci-info: 4.1.0
       cli-cursor: 3.1.0
       cli-table3: 0.6.1
       commander: 6.2.1
       common-tags: 1.8.2
       dayjs: 1.11.7
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.3(supports-color@8.1.1)
       enquirer: 2.3.6
       eventemitter2: 6.4.7
       execa: 4.1.0
@@ -8716,7 +8721,6 @@ snapshots:
       fs-extra: 9.1.0
       hasha: 5.2.2
       is-installed-globally: 0.4.0
-      lazy-ass: 1.6.0
       listr2: 3.14.0(enquirer@2.3.6)
       lodash: 4.17.21
       log-symbols: 4.1.0
@@ -8789,11 +8793,9 @@ snapshots:
     optionalDependencies:
       supports-color: 8.1.1
 
-  debug@4.4.1(supports-color@8.1.1):
+  debug@4.4.1:
     dependencies:
       ms: 2.1.3
-    optionalDependencies:
-      supports-color: 8.1.1
 
   debug@4.4.3(supports-color@8.1.1):
     dependencies:
@@ -10203,7 +10205,7 @@ snapshots:
   istanbul-lib-source-maps@5.0.6:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       istanbul-lib-coverage: 3.2.2
     transitivePeerDependencies:
       - supports-color
@@ -11691,7 +11693,7 @@ snapshots:
       cosmiconfig: 9.0.0(typescript@5.9.2)
       css-functions-list: 3.2.3
       css-tree: 3.1.0
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       fast-glob: 3.3.3
       fastest-levenshtein: 1.0.16
       file-entry-cache: 10.1.4
@@ -12202,7 +12204,7 @@ snapshots:
 
   vite-plugin-pwa@0.21.2(vite@5.4.20(@types/node@22.7.8)(terser@5.44.0))(workbox-build@7.3.0(@types/babel__core@7.20.5))(workbox-window@7.3.0):
     dependencies:
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.14
       vite: 5.4.20(@types/node@22.7.8)(terser@5.44.0)
@@ -12232,7 +12234,7 @@ snapshots:
       '@vitest/spy': 3.2.4
       '@vitest/utils': 3.2.4
       chai: 5.2.0
-      debug: 4.4.1(supports-color@8.1.1)
+      debug: 4.4.1
       expect-type: 1.2.1
       magic-string: 0.30.17
       pathe: 2.0.3
