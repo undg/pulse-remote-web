@@ -101,7 +101,7 @@ importers:
         version: 0.5.10(tailwindcss@3.4.18(ts-node@10.9.2(@types/node@22.7.8)(typescript@5.9.3)))
       '@testing-library/cypress':
         specifier: 10.1.0
-        version: 10.1.0(cypress@15.3.0)
+        version: 10.1.0(cypress@15.4.0)
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -154,8 +154,8 @@ importers:
         specifier: 0.1.2
         version: 0.1.2
       cypress:
-        specifier: 15.3.0
-        version: 15.3.0
+        specifier: 15.4.0
+        version: 15.4.0
       eslint:
         specifier: 9.37.0
         version: 9.37.0(jiti@1.21.7)
@@ -2684,8 +2684,8 @@ packages:
   csstype@3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
 
-  cypress@15.3.0:
-    resolution: {integrity: sha512-g9rDhoK9y8wW4Vx3Ppr8dtfvThXxPL3mJsV5e98fG+6EerrhXKmeRT2sL86cvNRtEZouXJfsuVL1lqiMuGNGcg==}
+  cypress@15.4.0:
+    resolution: {integrity: sha512-+GC/Y/LXAcaMCzfuM7vRx5okRmonceZbr0ORUAoOrZt/5n2eGK8yh04bok1bWSjZ32wRHrZESqkswQ6biArN5w==}
     engines: {node: ^20.1.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
 
@@ -7661,11 +7661,11 @@ snapshots:
       '@tanstack/query-core': 5.90.2
       react: 18.3.1
 
-  '@testing-library/cypress@10.1.0(cypress@15.3.0)':
+  '@testing-library/cypress@10.1.0(cypress@15.4.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
-      cypress: 15.3.0
+      cypress: 15.4.0
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -8647,7 +8647,7 @@ snapshots:
 
   csstype@3.1.0: {}
 
-  cypress@15.3.0:
+  cypress@15.4.0:
     dependencies:
       '@cypress/request': 3.0.9
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
