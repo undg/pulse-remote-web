@@ -8,8 +8,10 @@ export const RELEASE_OPTIMISTIC_TIME = 150
  */
 export const def = {
 	VOLUME_STEP: 5,
+	MIN_VOLUME_STEP: 1,
 	/**
 	 * Max volume 150 is 150%. Although you can set it as loud as you like,
+	 * value above 150 (150%) can damage your neighbors,
 	 * value above 200 (200%) can damage your speakers.
 	 */
 	MAX_VOLUME: 150,
