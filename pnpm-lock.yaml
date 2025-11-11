@@ -101,7 +101,7 @@ importers:
         version: 0.5.10(tailwindcss@3.4.18(ts-node@10.9.2(@types/node@22.7.8)(typescript@5.9.3)))
       '@testing-library/cypress':
         specifier: 10.1.0
-        version: 10.1.0(cypress@15.5.0)
+        version: 10.1.0(cypress@15.6.0)
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -154,8 +154,8 @@ importers:
         specifier: 0.1.2
         version: 0.1.2
       cypress:
-        specifier: 15.5.0
-        version: 15.5.0
+        specifier: 15.6.0
+        version: 15.6.0
       eslint:
         specifier: 9.39.1
         version: 9.39.1(jiti@1.21.7)
@@ -2764,8 +2764,8 @@ packages:
   csstype@3.1.0:
     resolution: {integrity: sha512-uX1KG+x9h5hIJsaKR9xHUeUraxf8IODOwq9JLNPq6BwB04a/xgpq3rcx47l5BZu5zBPlgD342tdke3Hom/nJRA==}
 
-  cypress@15.5.0:
-    resolution: {integrity: sha512-7jXBsh5hTfjxr9QQONC2IbdTj0nxSyU8x4eiarMZBzXzCj3pedKviUx8JnLcE4vL8e0TsOzp70WSLRORjEssRA==}
+  cypress@15.6.0:
+    resolution: {integrity: sha512-Vqo66GG1vpxZ7H1oDX9umfmzA3nF7Wy80QAc3VjwPREO5zTY4d1xfQFNPpOWleQl9vpdmR2z1liliOcYlRX6rQ==}
     engines: {node: ^20.1.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
 
@@ -6143,7 +6143,7 @@ snapshots:
       '@babel/traverse': 7.27.4
       '@babel/types': 7.27.6
       convert-source-map: 2.0.0
-      debug: 4.4.1
+      debug: 4.4.3(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -6914,7 +6914,7 @@ snapshots:
       '@babel/parser': 7.28.4
       '@babel/template': 7.27.2
       '@babel/types': 7.28.4
-      debug: 4.4.1
+      debug: 4.4.3(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -7829,11 +7829,11 @@ snapshots:
       '@tanstack/query-core': 5.90.7
       react: 18.3.1
 
-  '@testing-library/cypress@10.1.0(cypress@15.5.0)':
+  '@testing-library/cypress@10.1.0(cypress@15.6.0)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
-      cypress: 15.5.0
+      cypress: 15.6.0
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -8861,7 +8861,7 @@ snapshots:
 
   csstype@3.1.0: {}
 
-  cypress@15.5.0:
+  cypress@15.6.0:
     dependencies:
       '@cypress/request': 3.0.9
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
