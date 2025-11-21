@@ -47,13 +47,10 @@
         "eslint-config-airbnb-base",
         "eslint-config-airbnb-typescript",
         "eslint-config-prettier",
-        "eslint-plugin-cypress",
         "eslint-plugin-eslint-comments",
         "eslint-plugin-import",
-        "eslint-plugin-jsx-a11y",
         "eslint-plugin-react",
-        "eslint-plugin-react-hooks",
-        "eslint-plugin-testing-library"
+        "eslint-plugin-react-hooks"
       ],
       "automerge": true
     },
