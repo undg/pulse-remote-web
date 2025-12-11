@@ -82,7 +82,7 @@
     "@vitest/coverage-istanbul": "3.2.4",
     "autoprefixer": "10.4.22",
     "css-mediaquery": "0.1.2",
-    "cypress": "15.7.0",
+    "cypress": "15.7.1",
     "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-eslint-comments": "^3.2.0",
