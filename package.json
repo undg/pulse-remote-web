@@ -127,7 +127,7 @@
   "pnpm": {
     "overrides": {
       "headers-polyfill": "4.0.3",
-      "parse5": "^7.2.1"
+      "parse5": "^8.0.0"
     }
   }
 }
