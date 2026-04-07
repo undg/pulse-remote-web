@@ -99,7 +99,7 @@ importers:
         version: 0.5.11(tailwindcss@3.4.19(ts-node@10.9.2(@types/node@22.7.8)(typescript@5.9.3)))
       '@testing-library/cypress':
         specifier: 10.1.0
-        version: 10.1.0(cypress@15.13.0)
+        version: 10.1.0(cypress@15.13.1)
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -152,8 +152,8 @@ importers:
         specifier: 0.1.2
         version: 0.1.2
       cypress:
-        specifier: 15.13.0
-        version: 15.13.0
+        specifier: 15.13.1
+        version: 15.13.1
       eslint:
         specifier: 9.39.4
         version: 9.39.4(jiti@1.21.7)
@@ -2761,8 +2761,8 @@ packages:
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
 
-  cypress@15.13.0:
-    resolution: {integrity: sha512-hJ9sY++TUC/HlUzHVJpIrDyqKMjlhx5PTXl/A7eA91JNEtUWkJAqefQR5mo9AtLra/9+m+JJaMg2U5Qd0a74Fw==}
+  cypress@15.13.1:
+    resolution: {integrity: sha512-jLkgo75zlwo7PhXp0XJot+zIfFSDzN1SvTml6Xf3ETM1XHRWnH3Q4LAR3orCo/BsnxPnhjG3m5HYSvn9DAtwBg==}
     engines: {node: ^20.1.0 || ^22.0.0 || >=24.0.0}
     hasBin: true
 
@@ -6059,7 +6059,7 @@ snapshots:
       '@babel/traverse': 7.27.4
       '@babel/types': 7.27.6
       convert-source-map: 2.0.0
-      debug: 4.4.1
+      debug: 4.4.3(supports-color@8.1.1)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -6856,7 +6856,7 @@ snapshots:
       '@babel/parser': 7.28.4
       '@babel/template': 7.27.2
       '@babel/types': 7.28.4
-      debug: 4.4.1
+      debug: 4.4.3(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -7793,11 +7793,11 @@ snapshots:
       '@tanstack/query-core': 5.96.2
       react: 18.3.1
 
-  '@testing-library/cypress@10.1.0(cypress@15.13.0)':
+  '@testing-library/cypress@10.1.0(cypress@15.13.1)':
     dependencies:
       '@babel/runtime': 7.28.4
       '@testing-library/dom': 10.4.1
-      cypress: 15.13.0
+      cypress: 15.13.1
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -8754,7 +8754,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  cypress@15.13.0:
+  cypress@15.13.1:
     dependencies:
       '@cypress/request': 3.0.10
       '@cypress/xvfb': 1.2.4(supports-color@8.1.1)
@@ -12091,7 +12091,7 @@ snapshots:
   vite-node@3.2.4(@types/node@22.7.8)(terser@5.46.1):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.1
+      debug: 4.4.3(supports-color@8.1.1)
       es-module-lexer: 1.7.0
       pathe: 2.0.3
       vite: 5.4.21(@types/node@22.7.8)(terser@5.46.1)
