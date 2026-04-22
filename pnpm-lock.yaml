@@ -53,7 +53,7 @@ importers:
         version: 0.12.0(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(redux@5.0.1)(storybook@8.6.12(prettier@3.8.1))
       jotai-immer:
         specifier: ^0.4.1
-        version: 0.4.1(immer@10.2.0)(jotai@2.13.1(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react@18.3.1))
+        version: 0.4.3(immer@10.2.0)(jotai@2.13.1(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react@18.3.1))
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -3954,8 +3954,8 @@ packages:
     peerDependencies:
       react: '>=17.0.0'
 
-  jotai-immer@0.4.1:
-    resolution: {integrity: sha512-nQTt1HBKie/5OJDck1qLpV1PeBA6bjJLAczEYAx70PD8R4Mbu7gtexfBUCzJh6W6ecsOfwHksAYAesVth6SN9A==}
+  jotai-immer@0.4.3:
+    resolution: {integrity: sha512-sJWiSweR294aDA/jeH6bKSKYVxRqgfxnLWaZmKw0/Hd6iGKLN4TSB3AHpFWQFDf0W+P3sEIkROr0ALlWQfCSeA==}
     peerDependencies:
       immer: '>=9.0.0'
       jotai: '>=2.0.0'
@@ -10291,7 +10291,7 @@ snapshots:
       - redux
       - storybook
 
-  jotai-immer@0.4.1(immer@10.2.0)(jotai@2.13.1(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react@18.3.1)):
+  jotai-immer@0.4.3(immer@10.2.0)(jotai@2.13.1(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react@18.3.1)):
     dependencies:
       immer: 10.2.0
       jotai: 2.13.1(@babel/core@7.28.4)(@babel/template@7.28.6)(@types/react@18.3.28)(react@18.3.1)
