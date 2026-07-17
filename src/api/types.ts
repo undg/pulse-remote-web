@@ -37,6 +37,11 @@ export type MessageSetSinkMuted = {
 	payload: { name: Sink['name']; muted: Sink['muted'] }
 }
 
+export type MessageSetDefaultSink = {
+	action: Action.SetDefaultSink
+	payload: { name: Sink['name'] }
+}
+
 // [SinkInput] APPs playing audio
 //////////////////////////////////////////////////////////////////
 export type MessageSetSinkInputVolume = {
@@ -66,6 +71,11 @@ export type MessageSetSourceMuted = {
 	payload: { name: Source['name']; muted: Source['muted'] }
 }
 
+export type MessageSetDefaultSource = {
+	action: Action.SetDefaultSource
+	payload: { name: Source['name'] }
+}
+
 // @TODO (undg) 2025-02-10: generate it from go-prapi/json/json.go `AvailableCommands`
 /** Message send to the server via websocket */
 export type Message =
@@ -78,6 +88,7 @@ export type Message =
 	// SINKS, e.g. Speakers
 	| MessageSetSinkVolume
 	| MessageSetSinkMuted
+	| MessageSetDefaultSink
 
 	// Apps playing audio
 	| MessageSetSinkInputVolume
@@ -87,3 +98,4 @@ export type Message =
 	// SOURCES, Microphone
 	| MessageSetSourceVolume
 	| MessageSetSourceMuted
+	| MessageSetDefaultSource

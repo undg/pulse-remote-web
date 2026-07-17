@@ -17,6 +17,8 @@ export enum Action {
 	GetStatus = 'GetStatus',
 	MoveSinkInput = 'MoveSinkInput',
 	MoveSourceOutput = 'MoveSourceOutput',
+	SetDefaultSink = 'SetDefaultSink',
+	SetDefaultSource = 'SetDefaultSource',
 	SetSinkInputMuted = 'SetSinkInputMuted',
 	SetSinkInputVolume = 'SetSinkInputVolume',
 	SetSinkMuted = 'SetSinkMuted',

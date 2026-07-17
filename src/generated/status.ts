@@ -76,6 +76,10 @@ export interface Sink {
 	 */
 	id: number
 	/**
+	 * Whether this sink is the current default
+	 */
+	isDefault: boolean
+	/**
 	 * Human-readable label for the sink
 	 */
 	label: string
@@ -98,6 +102,10 @@ export interface Source {
 	 * Unique numeric identifier of the source
 	 */
 	id: number
+	/**
+	 * Whether this source is the current default
+	 */
+	isDefault: boolean
 	/**
 	 * Human-readable label for the source
 	 */

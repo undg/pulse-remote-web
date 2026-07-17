@@ -1,4 +1,4 @@
-import { MinusCircleIcon, PlusCircleIcon, Volume, Volume1, Volume2, VolumeOff } from 'lucide-react'
+import { MinusCircleIcon, PlusCircleIcon, Star, Volume, Volume1, Volume2, VolumeOff } from 'lucide-react'
 import { useConfig } from '../config/use-config'
 import { RELEASE_OPTIMISTIC_TIME, testid } from '../constant'
 import { Button } from '../primitives/button'
@@ -24,9 +24,12 @@ export const VolumeSlider: React.FC<{
 	muted: boolean
 	label: string
 	volume: number
+	/** only sink/source can be set to default. Doesn't apply to app-sink/source. Undefined for app's */
+	isDefault?: boolean
 	onMuteChange?: React.MouseEventHandler<HTMLButtonElement> | undefined
 	onValueChange?: (value: number[]) => void
 	onValueCommit?: (value: number[]) => void
+	onSetDefault?: () => void
 }> = props => {
 	const [config] = useConfig()
 
@@ -111,7 +114,20 @@ export const VolumeSlider: React.FC<{
 			>
 				{getVolumeIcon(props.volume, props.muted)}
 			</Toggle>
-			<Small className='self-end truncate text-right text-xs'>{props.label}</Small>
+			<div className='flex items-center gap-2 self-end'>
+				{props.isDefault !== undefined && (
+					<Toggle
+						variant='default'
+						size='sm'
+						pressed={props.isDefault}
+						data-testid={testid.btnSetDefault}
+						onClick={props.onSetDefault}
+					>
+						<Star className={cn('size-5', props.isDefault && 'text-yellow-500')} />
+					</Toggle>
+				)}
+				<Small className='truncate text-right text-xs'>{props.label}</Small>
+			</div>
 			<div className='col-span-2 flex'>
 				<Button data-testid={testid.btnVolumeDown} variant={`ghost`} size='icon' onClick={handleVolumeDown}>
 					<MinusCircleIcon />

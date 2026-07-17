@@ -30,6 +30,11 @@ export const ControllerSources: React.FC = () => {
 		vol.toggleSourceMute({ name })
 	}
 
+	const handleSetDefaultSource = (name: string) => () => {
+		navigator.vibrate([VIBRATE_TIME])
+		vol.setDefaultSource({ name })
+	}
+
 	// other handlers
 	const showSourceMonitors = (sourceMonitored: boolean) =>
 		config.showMonitoredSources || (!config.showMonitoredSources && !sourceMonitored)
@@ -45,9 +50,11 @@ export const ControllerSources: React.FC = () => {
 								muted={source.muted}
 								volume={source.volume}
 								label={source.label}
+								isDefault={source.isDefault}
 								onMuteChange={handleSourceMuteToggle(source.name)}
 								onValueChange={volume => handleSourceVolumeChange(source.name, volume)}
 								onValueCommit={volume => sourceVolume(source.name, volume).send()}
+								onSetDefault={handleSetDefaultSource(source.name)}
 							></VolumeSlider>
 						),
 				)}
