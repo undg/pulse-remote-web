@@ -1,0 +1,11 @@
+packages:
+  - '.'
+
+overrides:
+  headers-polyfill: 5.0.1
+  parse5: ^8.0.0
+
+onlyBuiltDependencies:
+  - cypress
+  - esbuild
+  - msw

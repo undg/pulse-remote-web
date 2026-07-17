@@ -9,7 +9,7 @@
     "bumb:minor": "./scripts/bump.sh minor",
     "bumb:main": "./scripts/bump.sh main",
     "dev": "vite",
-    "prepare": "husky install",
+    "prepare": "husky",
     "preview": "vite preview",
     "preview:test": "start-server-and-test preview http://localhost:4173",
     "test": "vitest",
@@ -123,11 +123,5 @@
       "eslint --cache --fix",
       "vitest related --run --coverage=false"
     ]
-  },
-  "pnpm": {
-    "overrides": {
-      "headers-polyfill": "5.0.1",
-      "parse5": "^8.0.0"
-    }
   }
 }
