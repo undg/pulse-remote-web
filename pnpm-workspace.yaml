@@ -9,3 +9,10 @@ onlyBuiltDependencies:
   - cypress
   - esbuild
   - msw
+
+ignoreBuildScripts: false
+
+allowBuilds:
+  cypress: true
+  esbuild: true
+  msw: true
