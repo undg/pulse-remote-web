@@ -40,6 +40,7 @@ export default [
 		},
 		rules: {
 			'no-dupe-else-if': 'error',
+			'no-eval': 'error',
 			'no-promise-executor-return': 'error',
 			'no-unreachable-loop': 'error',
 			'no-useless-backreference': 'error',
@@ -89,6 +90,7 @@ export default [
 			'@typescript-eslint/member-ordering': 'off',
 			'@typescript-eslint/no-implicit-any-catch': 'off',
 			'@typescript-eslint/no-magic-numbers': 'off',
+			'@typescript-eslint/no-non-null-assertion': 'error',
 			'@typescript-eslint/no-restricted-imports': 'off',
 			'@typescript-eslint/no-use-before-define': 'off',
 			'@typescript-eslint/non-nullable-type-assertion-style': 'off',

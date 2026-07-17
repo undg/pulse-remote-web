@@ -36,6 +36,12 @@ export const ControllerSinks: React.FC = () => {
 		vol.toggleSinkMute({ name })
 	}
 
+	// SINK set default
+	const handleSetDefaultSink = (name: string) => () => {
+		navigator.vibrate([VIBRATE_TIME])
+		vol.setDefaultSink({ name })
+	}
+
 	// SINK INPUT volume control (with optimistic and throttle)
 	const sinkInputVolume = (id: number, [volume]: number[]) => {
 		navigator.vibrate([VIBRATE_TIME])
@@ -71,9 +77,11 @@ export const ControllerSinks: React.FC = () => {
 								muted={sink.muted}
 								volume={sink.volume}
 								label={sink.label}
+								isDefault={sink.isDefault}
 								onMuteChange={handleSinkMuteToggle(sink.name)}
 								onValueChange={volume => handleSinkVolumeChange(sink.name, volume)}
 								onValueCommit={volume => sinkVolume(sink.name, volume).send()}
+								onSetDefault={handleSetDefaultSink(sink.name)}
 							>
 								{vol.volStatus?.sinkInputs?.map(
 									si =>

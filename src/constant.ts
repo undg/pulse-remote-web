@@ -33,6 +33,8 @@ export const testid = {
 	btnMuteToggle: 'btn-mute-toggle',
 	btnVolumeUp: 'btn-volume-up',
 	btnVolumeDown: 'btn-volume-down',
+	btnSetDefault: 'btn-set-default',
+	iconDefault: 'icon-default',
 
 	// config page
 	configPage: 'config-page',

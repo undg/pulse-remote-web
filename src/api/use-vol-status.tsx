@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 import type {
 	IncomingMessage,
 	MessageMoveSinkInput,
+	MessageSetDefaultSink,
+	MessageSetDefaultSource,
 	MessageSetSinkInputMuted,
 	MessageSetSinkInputVolume,
 	MessageSetSinkMuted,
@@ -119,6 +121,13 @@ export const useVolumeStatus = () => {
 		})
 	}
 
+	const setDefaultSink = ({ name }: MessageSetDefaultSink['payload']) => {
+		sendMessage({
+			action: Action.SetDefaultSink,
+			payload: { name },
+		})
+	}
+
 	const toggleSinkInputMute = ({ id }: Pick<MessageSetSinkInputMuted['payload'], 'id'>) => {
 		sendMessage({
 			action: Action.SetSinkInputMuted,
@@ -163,12 +172,20 @@ export const useVolumeStatus = () => {
 		})
 	}
 
+	const setDefaultSource = ({ name }: MessageSetDefaultSource['payload']) => {
+		sendMessage({
+			action: Action.SetDefaultSource,
+			payload: { name },
+		})
+	}
+
 	return {
 		volStatus,
 
 		// Sink
 		setSink,
 		toggleSinkMute,
+		setDefaultSink,
 
 		// SinkInput
 		setSinkInput,
@@ -178,5 +195,6 @@ export const useVolumeStatus = () => {
 		// Source
 		setSource,
 		toggleSourceMute,
+		setDefaultSource,
 	}
 }
