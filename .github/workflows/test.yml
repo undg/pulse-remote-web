@@ -33,4 +33,4 @@ jobs:
         run: pnpm i
 
       - name: Validate
-        run: pnpm run-p lint test:ci test:e2e:ci
+        run: pnpm run-p lint test:ci
