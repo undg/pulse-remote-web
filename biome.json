@@ -83,7 +83,56 @@
             "noMagicNumbers": "off",
             "noNonNullAssertion": "error",
             "noParameterAssign": "off",
-            "noRestrictedImports": "error",
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "lucide-react": {
+                    "importNames": [
+                      "Button",
+                      "Switch",
+                      "Label",
+                      "Input",
+                      "Slider",
+                      "Toggle"
+                    ],
+                    "message": "This is a UI primitive. Import from @/primitives/… instead."
+                  }
+                },
+                "patterns": [
+                  {
+                    "group": ["**", "!**/primitives/button"],
+                    "importNamePattern": "Button",
+                    "message": "Import Button from @/primitives/button instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/switch"],
+                    "importNamePattern": "Switch",
+                    "message": "Import Switch from @/primitives/switch instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/label"],
+                    "importNamePattern": "Label",
+                    "message": "Import Label from @/primitives/label instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/input"],
+                    "importNamePattern": "Input",
+                    "message": "Import Input from @/primitives/input instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/slider"],
+                    "importNamePattern": "Slider",
+                    "message": "Import Slider from @/primitives/slider instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/toggle"],
+                    "importNamePattern": "Toggle",
+                    "message": "Import Toggle from @/primitives/toggle instead."
+                  }
+                ]
+              }
+            },
             "useConsistentArrowReturn": "off",
             "useConsistentCurlyBraces": "off",
             "useConsistentTypeDefinitions": "off",
