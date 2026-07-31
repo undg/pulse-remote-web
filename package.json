@@ -90,10 +90,6 @@
     "vitest": "3.2.4",
     "whatwg-fetch": "3.6.20"
   },
-  "browserslist": {
-    "production": "Edge >= 18, Firefox >= 60, Chrome >= 61, Safari >= 11, Opera >= 48",
-    "development": ["last 1 chrome version", "last 1 firefox version"]
-  },
   "lint-staged": {
     "*": "biome format --write",
     "*.css": "stylelint --cache --fix",
