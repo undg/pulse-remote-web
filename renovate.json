@@ -64,7 +64,6 @@
       "groupName": "build tools",
       "packageNames": [
         "@tailwindcss/forms",
-        "autoprefixer",
         "postcss",
         "tailwind-merge",
         "tailwindcss",
