@@ -67,6 +67,5 @@ Clean code awaits smart devs.
 - Jotai: state management
 - Zod: schema validation
 - Vitest: unit testing
-- Cypress: E2E testing
 - GitHub Actions: CI/CD
 - Tailwind CSS + Shadcn

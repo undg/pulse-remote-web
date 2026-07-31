@@ -6,13 +6,11 @@ overrides:
   parse5: ^8.0.0
 
 onlyBuiltDependencies:
-  - cypress
   - esbuild
   - msw
 
 ignoreBuildScripts: false
 
 allowBuilds:
-  cypress: true
   esbuild: true
   msw: true

@@ -39,11 +39,6 @@
       "automerge": true
     },
     {
-      "groupName": "e2e testing",
-      "packageNames": ["cypress", "@testing-library/cypress"],
-      "automerge": true
-    },
-    {
       "groupName": "linters",
       "packagePatterns": [
         "eslint",

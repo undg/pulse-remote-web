@@ -7,4 +7,3 @@ dist-ssr
 coverage
 .nyc_output
 .stylelintcache
-cypress/videos

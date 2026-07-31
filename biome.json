@@ -29,8 +29,7 @@
       "!**/.eslintcache",
       "!**/coverage",
       "!**/.nyc_output",
-      "!**/.stylelintcache",
-      "!cypress/videos"
+      "!**/.stylelintcache"
     ]
   },
   "javascript": {
@@ -160,7 +159,7 @@
       }
     },
     {
-      "includes": ["vite.config.ts", "cypress.config.ts"],
+      "includes": ["vite.config.ts"],
       "javascript": { "globals": [] }
     }
   ],
