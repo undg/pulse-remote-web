@@ -2,8 +2,8 @@ import { screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './app'
 import { testid } from './constant'
-import { renderWithProviders } from './test-utils'
 import { dict } from './dict'
+import { renderWithProviders } from './test-utils'
 
 describe('<App />', () => {
 	beforeEach(() => {
@@ -12,7 +12,13 @@ describe('<App />', () => {
 	})
 
 	const waitForLoad = async () => {
-		await waitFor(() => expect(screen.queryByTestId('loading-or-error')).not.toBeInTheDocument(), { timeout: 5000 })
+		await waitFor(
+			() =>
+				expect(
+					screen.queryByTestId('loading-or-error'),
+				).not.toBeInTheDocument(),
+			{ timeout: 5000 },
+		)
 	}
 
 	it.each([
@@ -20,7 +26,9 @@ describe('<App />', () => {
 			'load home page',
 			async () => {
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerSinks)).resolves.toBeInTheDocument()
+				await expect(
+					screen.findByText(dict.headerSinks),
+				).resolves.toBeInTheDocument()
 			},
 		],
 		[
@@ -28,7 +36,9 @@ describe('<App />', () => {
 			async () => {
 				await userEvent.click(screen.getByTestId(testid.gotoSourcesPage))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerSources)).resolves.toBeInTheDocument()
+				await expect(
+					screen.findByText(dict.headerSources),
+				).resolves.toBeInTheDocument()
 			},
 		],
 		[
@@ -36,7 +46,9 @@ describe('<App />', () => {
 			async () => {
 				await userEvent.click(screen.getByTestId(testid.gotoAbout))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerAbout)).resolves.toBeInTheDocument()
+				await expect(
+					screen.findByText(dict.headerAbout),
+				).resolves.toBeInTheDocument()
 			},
 		],
 		[
@@ -44,7 +56,9 @@ describe('<App />', () => {
 			async () => {
 				await userEvent.click(screen.getByTestId(testid.gotoConfig))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerConfig)).resolves.toBeInTheDocument()
+				await expect(
+					screen.findByText(dict.headerConfig),
+				).resolves.toBeInTheDocument()
 			},
 		],
 		[
@@ -52,7 +66,9 @@ describe('<App />', () => {
 			async () => {
 				await userEvent.click(screen.getByTestId(testid.gotoSinksPage))
 				await waitForLoad()
-				await expect(screen.findByText(dict.headerSinks)).resolves.toBeInTheDocument()
+				await expect(
+					screen.findByText(dict.headerSinks),
+				).resolves.toBeInTheDocument()
 			},
 		],
 	])('%s', async (_, test) => await test())

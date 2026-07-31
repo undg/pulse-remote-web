@@ -15,17 +15,26 @@ export function Draggable({
 	className?: string
 	children?: ReactNode
 }) {
-	const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-		id,
-	})
+	const { attributes, listeners, setNodeRef, transform, isDragging } =
+		useDraggable({
+			id,
+		})
 	const style = {
 		transform: CSS.Translate.toString(transform),
 	}
 
 	return (
 		<div>
-			{isDragging && <div className={cn(className, 'absolute opacity-30')}>{children}</div>}
-			<div ref={setNodeRef} style={style} className={className} {...listeners} {...attributes}>
+			{isDragging && (
+				<div className={cn(className, 'absolute opacity-30')}>{children}</div>
+			)}
+			<div
+				ref={setNodeRef}
+				style={style}
+				className={className}
+				{...listeners}
+				{...attributes}
+			>
 				{children}
 			</div>
 		</div>

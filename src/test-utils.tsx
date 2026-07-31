@@ -18,7 +18,10 @@ export const DESKTOP_RESOLUTION_HEIGHT = 800
 export const MOBILE_RESOLUTION_WIDTH = 414
 export const MOBILE_RESOLUTION_HEIGHT = 896
 
-export function renderWithProviders(ui: ReactElement, includeRouter = true): void {
+export function renderWithProviders(
+	ui: ReactElement,
+	includeRouter = true,
+): void {
 	render(ui, {
 		wrapper: ({ children }: PropsWithChildren): ReactElement => (
 			<QueryClientProvider client={queryClient}>
@@ -29,5 +32,7 @@ export function renderWithProviders(ui: ReactElement, includeRouter = true): voi
 }
 
 export async function waitForLoad() {
-	await waitFor(() => expect(screen.queryByTestId('loading-or-error')).not.toBeInTheDocument())
+	await waitFor(() =>
+		expect(screen.queryByTestId('loading-or-error')).not.toBeInTheDocument(),
+	)
 }

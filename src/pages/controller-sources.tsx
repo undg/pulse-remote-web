@@ -16,9 +16,12 @@ export const ControllerSources: React.FC = () => {
 		return vol.setSource({ name, volume })
 	}
 
-	const throttledSourceVolumeHandler = useThrottledCallback((name: string, volume: number[]) => {
-		sourceVolume(name, volume).send()
-	}, THROTTLE_TIME)
+	const throttledSourceVolumeHandler = useThrottledCallback(
+		(name: string, volume: number[]) => {
+			sourceVolume(name, volume).send()
+		},
+		THROTTLE_TIME,
+	)
 
 	const handleSourceVolumeChange = (name: string, volume: number[]) => {
 		sourceVolume(name, volume).optimistic()
@@ -37,7 +40,8 @@ export const ControllerSources: React.FC = () => {
 
 	// other handlers
 	const showSourceMonitors = (sourceMonitored: boolean) =>
-		config.showMonitoredSources || (!config.showMonitoredSources && !sourceMonitored)
+		config.showMonitoredSources ||
+		(!config.showMonitoredSources && !sourceMonitored)
 
 	return (
 		<Layout header={dict.headerSources}>
@@ -52,8 +56,12 @@ export const ControllerSources: React.FC = () => {
 								label={source.label}
 								isDefault={source.isDefault}
 								onMuteChange={handleSourceMuteToggle(source.name)}
-								onValueChange={volume => handleSourceVolumeChange(source.name, volume)}
-								onValueCommit={volume => sourceVolume(source.name, volume).send()}
+								onValueChange={volume =>
+									handleSourceVolumeChange(source.name, volume)
+								}
+								onValueCommit={volume =>
+									sourceVolume(source.name, volume).send()
+								}
 								onSetDefault={handleSetDefaultSource(source.name)}
 							></VolumeSlider>
 						),

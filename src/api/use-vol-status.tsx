@@ -2,6 +2,9 @@ import { atom, useAtomValue } from 'jotai'
 import { useAtomDevtools } from 'jotai-devtools'
 import { useImmerAtom } from 'jotai-immer'
 import { useEffect } from 'react'
+import { Action } from '../generated/message'
+import { PrapiStatus } from '../generated/status'
+import { debugAtom } from '../utils/debugAtom'
 import type {
 	IncomingMessage,
 	MessageMoveSinkInput,
@@ -15,9 +18,6 @@ import type {
 	MessageSetSourceVolume,
 } from './types'
 import { useWebSocketApi } from './use-web-socket-api'
-import { PrapiStatus } from '../generated/status'
-import { Action } from '../generated/message'
-import { debugAtom } from '../utils/debugAtom'
 
 export const volStatusAtom = atom<PrapiStatus>()
 debugAtom(volStatusAtom, 'volStatusAtom')
@@ -37,7 +37,11 @@ export const useVolumeStatus = () => {
 		if (lastMessage && typeof lastMessage.data === 'string') {
 			const incomingMessage = JSON.parse(lastMessage.data) as IncomingMessage
 			updateVolStatus(draft => {
-				if (!blocked && incomingMessage.action === 'GetStatus' && Boolean(incomingMessage.payload)) {
+				if (
+					!blocked &&
+					incomingMessage.action === 'GetStatus' &&
+					Boolean(incomingMessage.payload)
+				) {
 					return incomingMessage.payload
 				}
 				return draft
@@ -68,7 +72,10 @@ export const useVolumeStatus = () => {
 		}
 	}
 
-	const setSinkInput = ({ id, volume }: MessageSetSinkInputVolume['payload']) => {
+	const setSinkInput = ({
+		id,
+		volume,
+	}: MessageSetSinkInputVolume['payload']) => {
 		function optimistic() {
 			updateVolStatus(draft => {
 				const sink = draft?.sinkInputs?.find(s => s.id === id)
@@ -107,7 +114,9 @@ export const useVolumeStatus = () => {
 		})
 	}
 
-	const toggleSinkMute = ({ name }: Pick<MessageSetSinkMuted['payload'], 'name'>) => {
+	const toggleSinkMute = ({
+		name,
+	}: Pick<MessageSetSinkMuted['payload'], 'name'>) => {
 		updateVolStatus(draft => {
 			const sink = draft?.sinks?.find(s => s.name === name)
 			if (sink) {
@@ -117,7 +126,10 @@ export const useVolumeStatus = () => {
 
 		sendMessage({
 			action: Action.SetSinkMuted,
-			payload: { name, muted: !volStatus?.sinks?.find(s => s.name === name)?.muted },
+			payload: {
+				name,
+				muted: !volStatus?.sinks?.find(s => s.name === name)?.muted,
+			},
 		})
 	}
 
@@ -128,10 +140,15 @@ export const useVolumeStatus = () => {
 		})
 	}
 
-	const toggleSinkInputMute = ({ id }: Pick<MessageSetSinkInputMuted['payload'], 'id'>) => {
+	const toggleSinkInputMute = ({
+		id,
+	}: Pick<MessageSetSinkInputMuted['payload'], 'id'>) => {
 		sendMessage({
 			action: Action.SetSinkInputMuted,
-			payload: { id, muted: !volStatus?.sinkInputs?.find(s => s.id === id)?.muted },
+			payload: {
+				id,
+				muted: !volStatus?.sinkInputs?.find(s => s.id === id)?.muted,
+			},
 		})
 	}
 
@@ -158,7 +175,9 @@ export const useVolumeStatus = () => {
 		}
 	}
 
-	const toggleSourceMute = ({ name }: Pick<MessageSetSourceMuted['payload'], 'name'>) => {
+	const toggleSourceMute = ({
+		name,
+	}: Pick<MessageSetSourceMuted['payload'], 'name'>) => {
 		updateVolStatus(draft => {
 			const source = draft?.sources?.find(s => s.name === name)
 			if (source) {
@@ -168,7 +187,10 @@ export const useVolumeStatus = () => {
 
 		sendMessage({
 			action: Action.SetSourceMuted,
-			payload: { name, muted: !volStatus?.sources?.find(s => s.name === name)?.muted },
+			payload: {
+				name,
+				muted: !volStatus?.sources?.find(s => s.name === name)?.muted,
+			},
 		})
 	}
 

@@ -40,7 +40,18 @@ export const useWebSocketApi = () => {
 		setStatus(connectionStatus[readyState])
 	}, [readyState])
 
-	const sendMessage = useCallback((message: Message) => sendMessageWs(JSON.stringify(message)), [sendMessageWs])
+	const sendMessage = useCallback(
+		(message: Message) => sendMessageWs(JSON.stringify(message)),
+		[sendMessageWs],
+	)
 
-	return { messageHistory, sendMessage, sendJsonMessage, status, getWebSocket, lastMessage, lastJsonMessage }
+	return {
+		messageHistory,
+		sendMessage,
+		sendJsonMessage,
+		status,
+		getWebSocket,
+		lastMessage,
+		lastJsonMessage,
+	}
 }

@@ -1,4 +1,15 @@
-import { MinusCircleIcon, PlusCircleIcon, Star, Volume, Volume1, Volume2, VolumeOff } from 'lucide-react'
+import { SliderProps } from '@radix-ui/react-slider'
+import { useAtom } from 'jotai'
+import {
+	MinusCircleIcon,
+	PlusCircleIcon,
+	Star,
+	Volume,
+	Volume1,
+	Volume2,
+	VolumeOff,
+} from 'lucide-react'
+import { volStatusBlockAtom } from '../api/use-vol-status'
 import { useConfig } from '../config/use-config'
 import { RELEASE_OPTIMISTIC_TIME, testid } from '../constant'
 import { Button } from '../primitives/button'
@@ -6,9 +17,6 @@ import { Slider } from '../primitives/slider'
 import { Toggle } from '../primitives/toggle'
 import { Small } from '../primitives/typography'
 import { cn } from '../utils/cn'
-import { volStatusBlockAtom } from '../api/use-vol-status'
-import { useAtom } from 'jotai'
-import { SliderProps } from '@radix-ui/react-slider'
 
 const getVolumeIcon = (volume: number, muted: boolean) => {
 	const size = '2em'
@@ -103,7 +111,10 @@ export const VolumeSlider: React.FC<{
 	return (
 		<div
 			className={cn('grid items-center gap-x-1 gap-y-0', props.className)}
-			style={{ gridTemplateColumns: '1.8em auto', gridTemplateRows: 'repeat(1em)' }}
+			style={{
+				gridTemplateColumns: '1.8em auto',
+				gridTemplateRows: 'repeat(1em)',
+			}}
 		>
 			<Toggle
 				variant='default'
@@ -123,13 +134,20 @@ export const VolumeSlider: React.FC<{
 						data-testid={testid.btnSetDefault}
 						onClick={props.onSetDefault}
 					>
-						<Star className={cn('size-5', props.isDefault && 'text-yellow-500')} />
+						<Star
+							className={cn('size-5', props.isDefault && 'text-yellow-500')}
+						/>
 					</Toggle>
 				)}
 				<Small className='truncate text-right text-xs'>{props.label}</Small>
 			</div>
 			<div className='col-span-2 flex'>
-				<Button data-testid={testid.btnVolumeDown} variant={`ghost`} size='icon' onClick={handleVolumeDown}>
+				<Button
+					data-testid={testid.btnVolumeDown}
+					variant={`ghost`}
+					size='icon'
+					onClick={handleVolumeDown}
+				>
 					<MinusCircleIcon />
 				</Button>
 				<Slider
@@ -137,7 +155,7 @@ export const VolumeSlider: React.FC<{
 					thumbContent={
 						<span
 							className={cn(
-								'text-xs text-green-500',
+								'text-green-500 text-xs',
 								props.volume >= 75 && 'text-orange-500',
 								props.volume >= 100 && 'text-red-500',
 							)}
@@ -155,7 +173,12 @@ export const VolumeSlider: React.FC<{
 					onValueCommit={handleValueCommit}
 					onWheel={handleWheel}
 				/>
-				<Button data-testid={testid.btnVolumeUp} variant={`ghost`} size='icon' onClick={handleVolumeUp}>
+				<Button
+					data-testid={testid.btnVolumeUp}
+					variant={`ghost`}
+					size='icon'
+					onClick={handleVolumeUp}
+				>
 					<PlusCircleIcon />
 				</Button>
 			</div>

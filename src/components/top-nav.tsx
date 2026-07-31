@@ -31,7 +31,12 @@ export const TopNav: FC = () => {
 				<ButtonNavLink to={routes.config} testid={testid.gotoConfig}>
 					<Settings />
 				</ButtonNavLink>
-				<Button variant='outline' size='sm' data-testid={testid.btnTheme} onClick={handleThemeToggle}>
+				<Button
+					variant='outline'
+					size='sm'
+					data-testid={testid.btnTheme}
+					onClick={handleThemeToggle}
+				>
 					{theme === 'light' && <Sun />}
 					{theme === 'dark' && <Moon />}
 				</Button>
@@ -40,7 +45,11 @@ export const TopNav: FC = () => {
 	)
 }
 
-const ButtonNavLink: FC<{ to: string; children: ReactNode; testid: string }> = ({ to, children, testid }) => {
+const ButtonNavLink: FC<{
+	to: string
+	children: ReactNode
+	testid: string
+}> = ({ to, children, testid }) => {
 	const curr = useMatch(to)
 	return (
 		<Link to={to} data-testid={testid}>

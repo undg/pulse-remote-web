@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import { Config } from './config'
 import { testid } from '../constant'
+import { Config } from './config'
 
 describe(`<Config /> route`, () => {
 	// Setup router context

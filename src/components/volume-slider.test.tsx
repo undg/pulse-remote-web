@@ -1,6 +1,6 @@
-import { render, fireEvent, screen } from '@testing-library/react'
-import { VolumeSlider } from './volume-slider'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { def, testid } from '../constant'
+import { VolumeSlider } from './volume-slider'
 
 describe('<VolumeSlider />', () => {
 	const defaultProps = {
@@ -29,11 +29,18 @@ describe('<VolumeSlider />', () => {
 			const volume = 50
 			render(<VolumeSlider {...defaultProps} volume={volume} />)
 			fireEvent.click(screen.getByTestId(testid.btnVolumeUp))
-			expect(defaultProps.onValueCommit).toHaveBeenCalledWith([volume + def.VOLUME_STEP])
+			expect(defaultProps.onValueCommit).toHaveBeenCalledWith([
+				volume + def.VOLUME_STEP,
+			])
 		})
 
 		it('stops at max volume', () => {
-			render(<VolumeSlider {...defaultProps} volume={def.MAX_VOLUME - def.VOLUME_STEP / 2} />)
+			render(
+				<VolumeSlider
+					{...defaultProps}
+					volume={def.MAX_VOLUME - def.VOLUME_STEP / 2}
+				/>,
+			)
 			fireEvent.click(screen.getByTestId(testid.btnVolumeUp))
 			expect(defaultProps.onValueCommit).toHaveBeenCalledWith([def.MAX_VOLUME])
 		})
@@ -62,7 +69,9 @@ describe('<VolumeSlider />', () => {
 			const volume = 50
 			render(<VolumeSlider {...defaultProps} volume={volume} />)
 			fireEvent.click(screen.getByTestId(testid.btnVolumeDown))
-			expect(defaultProps.onValueCommit).toHaveBeenCalledWith([volume - def.VOLUME_STEP])
+			expect(defaultProps.onValueCommit).toHaveBeenCalledWith([
+				volume - def.VOLUME_STEP,
+			])
 		})
 
 		it('stops at min volume', () => {

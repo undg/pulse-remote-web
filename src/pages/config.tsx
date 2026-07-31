@@ -5,18 +5,20 @@ import { testid } from '../constant'
 import { dict } from '../dict'
 import { Button } from '../primitives/button'
 import { Input } from '../primitives/input'
-import { H3 } from '../primitives/typography'
 import { Label } from '../primitives/label'
 import { Switch } from '../primitives/switch'
+import { H3 } from '../primitives/typography'
 
 export const Config: FC = () => {
 	const [config, updateConfig] = useConfig()
 
-	const handleChange = (type: keyof typeof config) => (e: React.ChangeEvent<HTMLInputElement>) => {
-		let value: string | number = e.currentTarget.value
-		if (type === 'maxVolume' || type === 'minVolume' || type === 'stepVolume') value = Number(value)
-		updateConfig({ [type]: value })
-	}
+	const handleChange =
+		(type: keyof typeof config) => (e: React.ChangeEvent<HTMLInputElement>) => {
+			let value: string | number = e.currentTarget.value
+			if (type === 'maxVolume' || type === 'minVolume' || type === 'stepVolume')
+				value = Number(value)
+			updateConfig({ [type]: value })
+		}
 
 	const handleConfigDetect = () => {
 		updateConfig({
@@ -74,10 +76,19 @@ export const Config: FC = () => {
 							onChange={handleChange('endpoint')}
 						/>
 					</div>
-					<Input data-testid={testid.inputFullUrl} label='Full serverUrl' disabled value={config.serverUrl} />
+					<Input
+						data-testid={testid.inputFullUrl}
+						label='Full serverUrl'
+						disabled
+						value={config.serverUrl}
+					/>
 
 					<div className='mt-4 flex justify-between gap-4'>
-						<Button data-testid={testid.btnReset} variant='destructive' onClick={handleConfigReset}>
+						<Button
+							data-testid={testid.btnReset}
+							variant='destructive'
+							onClick={handleConfigReset}
+						>
 							Reset to default
 						</Button>
 						<Button data-testid={testid.btnDetect} onClick={handleConfigDetect}>

@@ -8,7 +8,9 @@ describe('ConfigSchema', () => {
 			endpoint: '/api/v1/ws',
 			showMonitoredSources: true,
 		}
-		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual('ws://localhost:8448/api/v1/ws')
+		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual(
+			'ws://localhost:8448/api/v1/ws',
+		)
 	})
 
 	it('should parse serverUrl', () => {
@@ -18,7 +20,9 @@ describe('ConfigSchema', () => {
 			endpoint: '/api/v1/ws',
 			showMonitoredSources: true,
 		}
-		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual('ws://localhost:8448/api/v1/ws')
+		expect(ConfigSchema.parse(validConfig).serverUrl).toEqual(
+			'ws://localhost:8448/api/v1/ws',
+		)
 	})
 
 	describe(`hostname`, () => {
