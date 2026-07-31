@@ -3,31 +3,36 @@
 ![Tests](https://github.com/undg/pulse-remote-web/actions/workflows/test.yml/badge.svg)
 ![Code quality analysis](https://github.com/undg/pulse-remote-web/actions/workflows/codeql-analysis.yml/badge.svg)
 
-## Pulse Remote Frontend
-
-Web UI interface for [pulse-remote](https://github.com/undg/pulse-remote) websocket server.
-
-Control Linux PC sound remotely from your phone.
+Web UI for [pulse-remote](https://github.com/undg/pulse-remote). Control Linux PC sound from your phone.
 
 <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
   <img src="https://github.com/user-attachments/assets/4573dc38-7637-4612-8d66-f1fcf54afa50" width="300" alt="Image1">
   <img src="https://github.com/user-attachments/assets/e01ec214-d6e1-4ab4-ad9a-606330a04138" width="300" alt="Image2">
 </div>
 
-## Development
+## Contributing
 
-#### Spin FE server
+### Prerequisites
+
+- Node.js (see `.nvmrc` or `package.json` engines)
+- [pnpm](https://pnpm.io/)
+- [pulse-remote](https://github.com/undg/pulse-remote) backend running locally (needed for dev and type generation)
+
+### Setup
 
 ```bash
 git clone https://github.com/undg/pulse-remote-web
 cd pulse-remote-web
 pnpm install
-pnpm run dev
 ```
 
-IMPORTANT: You need to run [pulse-remote](https://github.com/undg/pulse-remote) server
+### Development server
 
-#### Spin BE server
+```bash
+pnpm dev
+```
+
+The app connects to `ws://localhost:8448` by default. Make sure the backend is running:
 
 ```bash
 git clone https://github.com/undg/pulse-remote
@@ -35,38 +40,80 @@ cd pulse-remote
 make run
 ```
 
-## Key Commands
+### Commands
 
-- `pnpm run dev`: Start dev server
-- `pnpm run build`: Build production
-- `pnpm run test`: Run unit tests
-- `pnpm run test:e2e`: Run E2E tests
-- `pnpm run lint`: Run linting
+| Command | What it does |
+|---|---|
+| `pnpm dev` | Start Vite dev server |
+| `pnpm build` | Production build to `dist/` |
+| `pnpm preview` | Preview production build locally |
+| `pnpm test` | Run unit tests (Vitest, watch mode) |
+| `pnpm test:ci` | Run unit tests once (CI) |
+| `pnpm test:coverage` | Run tests with coverage report |
+| `pnpm lint` | Type-check (tsc) + lint (Biome) |
+| `pnpm format` | Format all files with Biome |
+| `pnpm validate` | Run lint + tests (same as CI) |
+| `pnpm types-gen` | Fetch backend schemas and regenerate API types |
 
-## Deployment
+### Code style
 
-Build output to [pulse-remote](https://github.com/undg/pulse-remote) `web/dist` folder.
+- **Formatter & linter**: [Biome](https://biomejs.dev/) — single quotes, no semicolons, trailing commas, 80 char width
+- **TypeScript**: strict mode, `import type` for type-only imports
+- **React**: functional components + hooks only, no default exports (except `App.tsx`)
+- **Imports**: sorted automatically by Biome on save/commit
+- **Tailwind**: class order auto-sorted by Biome
 
-pulse-remote have `make build` scripts that can pull this repo bundle it and wire it with the backend.
+Pre-commit hooks (Husky + lint-staged) format changed files and run related tests automatically.
 
-pulse-remote serves WebSockets and static files.
+### Project structure
 
-## Config
+```
+src/
+├── api/          WebSocket hooks, volume/status queries
+├── components/   Reusable UI components
+├── config/       Zod schemas, localStorage config, theme
+├── generated/    API types from backend — do not edit by hand
+├── pages/        Route-level page components
+├── primitives/   Wrapped Radix UI building blocks
+├── utils/        Helpers (cn, media queries, etc.)
+├── app.tsx       Root component
+├── main.tsx      Entry point
+└── router.tsx    Route definitions
+```
 
-Stored in localStorage. Jotai + Zod ensure valid values.
+### Regenerating API types
 
-## Code Quality
+Backend must be running on `localhost:8448`:
 
-GitHub Actions enforce quality and tests.
+```bash
+pnpm types-gen
+```
 
-Clean code awaits smart devs.
+This fetches JSON schemas from the backend and runs `quicktype` to produce TypeScript types in `src/generated/`. Never edit those files by hand.
+
+### CI
+
+GitHub Actions runs on every push and PR to `master`:
+
+```bash
+pnpm run-p lint test:ci
+```
+
+Keep PRs focused. Run `pnpm validate` locally before pushing.
 
 ## Tech Stack
 
-- React, TypeScript, Vite
-- Jotai: state management
-- Zod: schema validation
-- Vitest: unit testing
-- Cypress: E2E testing
-- GitHub Actions: CI/CD
-- Tailwind CSS + Shadcn
+| Concern | Tool |
+|---|---|
+| Framework | React 18, TypeScript, Vite 5 |
+| State | Jotai + jotai-immer |
+| Schema validation | Zod |
+| Styling | Tailwind CSS, Radix UI primitives |
+| Testing | Vitest + Testing Library + MSW |
+| Formatting & linting | Biome |
+| WebSocket | react-use-websocket |
+| Data fetching | TanStack React Query |
+| Drag & drop | dnd-kit |
+| PWA | vite-plugin-pwa |
+| CI | GitHub Actions |
+| Pre-commit | Husky + lint-staged |

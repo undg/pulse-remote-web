@@ -1,9 +1,9 @@
 import type { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { ControllerSinks } from './pages/controller-sinks'
-import { ControllerSources } from './pages/controller-sources'
 import About from './pages/about'
 import { Config } from './pages/config'
+import { ControllerSinks } from './pages/controller-sinks'
+import { ControllerSources } from './pages/controller-sources'
 
 export const routes = {
 	sinks: '/',

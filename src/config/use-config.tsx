@@ -1,9 +1,9 @@
 import { useAtom } from 'jotai'
-import { useAtomDevtools } from 'jotai-devtools'
 import { atomWithStorage } from 'jotai/utils'
+import { useAtomDevtools } from 'jotai-devtools'
+import { debugAtom } from '../utils/debugAtom'
 import type { Config } from './schema'
 import { ConfigSchema } from './schema'
-import { debugAtom } from '../utils/debugAtom'
 
 export const defaultConfig: Config = {
 	hostname: window.location.hostname,
@@ -16,7 +16,10 @@ export const defaultConfig: Config = {
 	showMonitoredSources: true,
 } as const
 
-export const configAtom = atomWithStorage<Config>('pr-web-config', defaultConfig)
+export const configAtom = atomWithStorage<Config>(
+	'pr-web-config',
+	defaultConfig,
+)
 debugAtom(configAtom, 'configAtom')
 
 export function useConfig(): [Config, (newConfig: Partial<Config>) => void] {

@@ -9,11 +9,22 @@
     },
     {
       "groupName": "react core",
-      "packageNames": ["@vitejs/plugin-react", "react", "react-dom", "@types/react", "@types/react-dom"]
+      "packageNames": [
+        "@vitejs/plugin-react",
+        "react",
+        "react-dom",
+        "@types/react",
+        "@types/react-dom"
+      ]
     },
     {
       "groupName": "unit testing",
-      "packagePatterns": ["@testing-library", "vitest", "jsdom", "@vitest/coverage-istanbul"],
+      "packagePatterns": [
+        "@testing-library",
+        "vitest",
+        "jsdom",
+        "@vitest/coverage-istanbul"
+      ],
       "automerge": true
     },
     {
@@ -25,11 +36,6 @@
         "@testing-library/react",
         "@testing-library/user-event"
       ],
-      "automerge": true
-    },
-    {
-      "groupName": "e2e testing",
-      "packageNames": ["cypress", "@testing-library/cypress"],
       "automerge": true
     },
     {
@@ -58,7 +64,6 @@
       "groupName": "build tools",
       "packageNames": [
         "@tailwindcss/forms",
-        "autoprefixer",
         "postcss",
         "tailwind-merge",
         "tailwindcss",

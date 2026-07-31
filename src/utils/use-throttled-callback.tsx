@@ -17,6 +17,9 @@ import { useCallback } from 'react'
  *   throttledVolumeChange(outputName, volume)
  * }
  */
-export function useThrottledCallback<T extends (...args: any[]) => any>(callback: T, delay: number) {
+export function useThrottledCallback<T extends (...args: any[]) => any>(
+	callback: T,
+	delay: number,
+) {
 	return useCallback(throttle(callback, delay), [delay])
 }

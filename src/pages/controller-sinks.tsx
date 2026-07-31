@@ -1,15 +1,15 @@
+import { DndContext } from '@dnd-kit/core'
 import { Fragment } from 'react'
 import { useVolumeStatus } from '../api/use-vol-status'
+import { Draggable } from '../components/drag/draggable'
+import { Droppable } from '../components/drag/droppable'
+import { useDragSinkInput } from '../components/drag/use-drag'
 import { Layout } from '../components/layout'
 import { VolumeSlider } from '../components/volume-slider'
-import { dict } from '../dict'
-import { useThrottledCallback } from '../utils/use-throttled-callback'
 import { THROTTLE_TIME, VIBRATE_TIME } from '../constant'
-import { DndContext } from '@dnd-kit/core'
+import { dict } from '../dict'
 import { cn } from '../utils/cn'
-import { useDragSinkInput } from '../components/drag/use-drag'
-import { Droppable } from '../components/drag/droppable'
-import { Draggable } from '../components/drag/draggable'
+import { useThrottledCallback } from '../utils/use-throttled-callback'
 
 export const ControllerSinks: React.FC = () => {
 	const vol = useVolumeStatus()
@@ -21,9 +21,12 @@ export const ControllerSinks: React.FC = () => {
 		return vol.setSink({ name, volume })
 	}
 
-	const throttledSinkHandler = useThrottledCallback((sinkName: string, volume: number[]) => {
-		sinkVolume(sinkName, volume).send()
-	}, THROTTLE_TIME)
+	const throttledSinkHandler = useThrottledCallback(
+		(sinkName: string, volume: number[]) => {
+			sinkVolume(sinkName, volume).send()
+		},
+		THROTTLE_TIME,
+	)
 
 	const handleSinkVolumeChange = (sinkName: string, volume: number[]) => {
 		sinkVolume(sinkName, volume).optimistic()
@@ -48,9 +51,12 @@ export const ControllerSinks: React.FC = () => {
 		return vol.setSinkInput({ id, volume })
 	}
 
-	const throttledSinkInputHandler = useThrottledCallback((id: number, volume: number[]) => {
-		sinkInputVolume(id, volume).send()
-	}, THROTTLE_TIME)
+	const throttledSinkInputHandler = useThrottledCallback(
+		(id: number, volume: number[]) => {
+			sinkInputVolume(id, volume).send()
+		},
+		THROTTLE_TIME,
+	)
 
 	const handleSinkInputVolumeChange = (id: number, volume: number[]) => {
 		sinkInputVolume(id, volume).optimistic()
@@ -79,7 +85,9 @@ export const ControllerSinks: React.FC = () => {
 								label={sink.label}
 								isDefault={sink.isDefault}
 								onMuteChange={handleSinkMuteToggle(sink.name)}
-								onValueChange={volume => handleSinkVolumeChange(sink.name, volume)}
+								onValueChange={volume =>
+									handleSinkVolumeChange(sink.name, volume)
+								}
 								onValueCommit={volume => sinkVolume(sink.name, volume).send()}
 								onSetDefault={handleSetDefaultSink(sink.name)}
 							>
@@ -87,19 +95,29 @@ export const ControllerSinks: React.FC = () => {
 									si =>
 										si.sinkId === sink.id && (
 											<Fragment key={si.id}>
-												<div className={cn('mb-4 ml-[14px] flex h-full flex-col pt-1')}>
+												<div
+													className={cn(
+														'mb-4 ml-[14px] flex h-full flex-col pt-1',
+													)}
+												>
 													{/* tree-branch */}
 													<TreeBranchUi active={drag.activeId === si.id} />
 													<Draggable id={si.id} className='ml-[-3px]' />
 												</div>
 												<VolumeSlider
-													className={cn(drag.activeId === si.id && 'opacity-30')}
+													className={cn(
+														drag.activeId === si.id && 'opacity-30',
+													)}
 													muted={si.muted}
 													label={si.label}
 													volume={si.volume}
 													onMuteChange={handleSinkInputMuteToggle(si.id)}
-													onValueChange={volume => handleSinkInputVolumeChange(si.id, volume)}
-													onValueCommit={volume => sinkInputVolume(si.id, volume).send()}
+													onValueChange={volume =>
+														handleSinkInputVolumeChange(si.id, volume)
+													}
+													onValueCommit={volume =>
+														sinkInputVolume(si.id, volume).send()
+													}
 												/>
 											</Fragment>
 										),
@@ -114,5 +132,10 @@ export const ControllerSinks: React.FC = () => {
 }
 
 const TreeBranchUi: React.FC<{ active: boolean }> = props => (
-	<div className={cn('h-full w-0 border-4 border-r-0 border-dotted border-foreground', props.active && 'opacity-30')} />
+	<div
+		className={cn(
+			'h-full w-0 border-4 border-foreground border-r-0 border-dotted',
+			props.active && 'opacity-30',
+		)}
+	/>
 )

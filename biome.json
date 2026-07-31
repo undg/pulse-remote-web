@@ -1,0 +1,170 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.6/schema.json",
+  "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+  "files": { "ignoreUnknown": false },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto",
+    "bracketSameLine": false,
+    "bracketSpacing": true,
+    "expand": "auto",
+    "useEditorconfig": true,
+    "includes": ["**", "!**/pnpm-lock.yaml", "!**/src/generated/**"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": { "preset": "none" },
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/.DS_Store",
+      "!**/dist",
+      "!**/dist-ssr",
+      "!**/*.local",
+      "!**/.eslintcache",
+      "!**/coverage",
+      "!**/.nyc_output",
+      "!**/.stylelintcache"
+    ]
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "indentScriptAndStyle": false,
+      "selfCloseVoidElements": "always"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/**/*.ts", "src/**/*.tsx"],
+      "javascript": { "globals": [] },
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImplicitCoercions": "error",
+            "noUselessFragments": "error",
+            "noVoid": "off",
+            "useRegexLiterals": "error"
+          },
+          "correctness": {
+            "noConstructorReturn": "error",
+            "noInvalidUseBeforeDeclaration": "off",
+            "noUndeclaredDependencies": "error",
+            "noUnusedImports": "error",
+            "noUnusedVariables": "warn",
+            "useJsxKeyInIterable": "error"
+          },
+          "performance": { "noJsxPropsBind": "off" },
+          "security": { "noGlobalEval": "error", "noScriptUrl": "error" },
+          "style": {
+            "noMagicNumbers": "off",
+            "noNonNullAssertion": "error",
+            "noParameterAssign": "off",
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "paths": {
+                  "lucide-react": {
+                    "importNames": [
+                      "Button",
+                      "Switch",
+                      "Label",
+                      "Input",
+                      "Slider",
+                      "Toggle"
+                    ],
+                    "message": "This is a UI primitive. Import from @/primitives/… instead."
+                  }
+                },
+                "patterns": [
+                  {
+                    "group": ["**", "!**/primitives/button"],
+                    "importNamePattern": "Button",
+                    "message": "Import Button from @/primitives/button instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/switch"],
+                    "importNamePattern": "Switch",
+                    "message": "Import Switch from @/primitives/switch instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/label"],
+                    "importNamePattern": "Label",
+                    "message": "Import Label from @/primitives/label instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/input"],
+                    "importNamePattern": "Input",
+                    "message": "Import Input from @/primitives/input instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/slider"],
+                    "importNamePattern": "Slider",
+                    "message": "Import Slider from @/primitives/slider instead."
+                  },
+                  {
+                    "group": ["**", "!**/primitives/toggle"],
+                    "importNamePattern": "Toggle",
+                    "message": "Import Toggle from @/primitives/toggle instead."
+                  }
+                ]
+              }
+            },
+            "useConsistentArrowReturn": "off",
+            "useConsistentCurlyBraces": "off",
+            "useConsistentTypeDefinitions": "off",
+            "useDestructuring": "off",
+            "useEnumInitializers": "off",
+            "useGroupedAccessorPairs": "error"
+          },
+          "suspicious": {
+            "noDeprecatedImports": "error",
+            "noDuplicateElseIf": "error",
+            "noTsIgnore": "error",
+            "noUselessRegexBackrefs": "error",
+            "useDefaultSwitchClauseLast": "error"
+          },
+          "nursery": {
+            "useSortedClasses": {
+              "level": "warn",
+              "options": {
+                "attributes": ["className", "class", "cn"],
+                "functions": ["cn", "clsx", "cva", "twMerge", "twJoin"]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["vite.config.ts"],
+      "javascript": { "globals": [] }
+    }
+  ],
+  "assist": {
+    "enabled": true,
+    "actions": { "source": { "organizeImports": "on" } }
+  }
+}

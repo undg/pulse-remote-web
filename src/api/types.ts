@@ -1,5 +1,5 @@
 import { Action } from '../generated/message'
-import { SinkInput, Sink, PrapiStatus, Source } from '../generated/status'
+import { PrapiStatus, Sink, SinkInput, Source } from '../generated/status'
 
 // @TODO (undg) 2024-09-19: generate those types on the BE or generate them from GetSchema API provided by the server.
 type ActionIn = 'GetStatus'
