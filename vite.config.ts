@@ -1,10 +1,9 @@
 /// <reference types="vitest" />
 import path from 'node:path'
-import eslintPlugin from '@nabla/vite-plugin-eslint'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
 	test: {
 		css: false,
 		include: ['**/*.test.{ts,tsx}'],
@@ -29,5 +28,5 @@ export default defineConfig(({ mode }) => ({
 			'@': path.resolve(new URL('src', import.meta.url).toString()),
 		},
 	},
-	plugins: [react(), ...(mode === 'test' ? [] : [eslintPlugin()])],
+	plugins: [react()],
 }))
