@@ -112,7 +112,7 @@ export const VolumeSlider: React.FC<{
 		<div
 			className={cn('grid items-center gap-x-1 gap-y-0', props.className)}
 			style={{
-				gridTemplateColumns: '1.8em auto',
+				gridTemplateColumns: '1.8em minmax(0, 1fr)',
 				gridTemplateRows: 'repeat(1em)',
 			}}
 		>
