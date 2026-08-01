@@ -1,21 +1,21 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { testid } from '../constant'
 import { Config } from './config'
 
-describe(`<Config /> route`, () => {
+describe('Config route', () => {
 	// Setup router context
 	const renderWithRouter = (ui: React.ReactElement) => {
 		return render(<BrowserRouter>{ui}</BrowserRouter>)
 	}
 
-	test(`Config renders and not crash`, () => {
+	test('Config renders and not crash', () => {
 		renderWithRouter(<Config />)
 		expect(screen.getByTestId(testid.configPage)).toBeInTheDocument()
 	})
 
-	describe(`Input's updates`, () => {
-		test(`Set url, detect it, and reset it`, () => {
+	describe("Input's updates", () => {
+		test('Set url, detect it, and reset it', () => {
 			renderWithRouter(<Config />)
 			const hostname = screen.getByTestId(testid.inputHostname)
 			const port = screen.getByTestId(testid.inputPort)
@@ -39,25 +39,34 @@ describe(`<Config /> route`, () => {
 			expect(fullUrl).toHaveValue('ws://localhost:3000/api/v1/ws')
 		})
 
-		test(`Set input min volume`, () => {
+		test('Slider max volume starts at 150 and responds to keyboard', () => {
 			renderWithRouter(<Config />)
-			const input = screen.getByTestId(testid.inputMinVolume)
-			fireEvent.change(input, { target: { value: 10 } })
-			expect(input).toHaveValue(10)
+			const slider = screen.getByTestId(testid.inputMaxVolume)
+			const thumb = within(slider).getByRole('slider')
+			expect(thumb).toHaveAttribute('aria-valuenow', '150')
+
+			// ArrowRight increases by step (25) → 175
+			fireEvent.keyDown(thumb, { key: 'ArrowRight' })
+			expect(thumb).toHaveAttribute('aria-valuenow', '175')
+
+			// ArrowLeft decreases back → 150
+			fireEvent.keyDown(thumb, { key: 'ArrowLeft' })
+			expect(thumb).toHaveAttribute('aria-valuenow', '150')
 		})
 
-		test(`Set input max volume`, () => {
+		test('Slider step volume starts at 5 and responds to keyboard', () => {
 			renderWithRouter(<Config />)
-			const input = screen.getByTestId(testid.inputMaxVolume)
-			fireEvent.change(input, { target: { value: 100 } })
-			expect(input).toHaveValue(100)
-		})
+			const slider = screen.getByTestId(testid.inputStepVolume)
+			const thumb = within(slider).getByRole('slider')
+			expect(thumb).toHaveAttribute('aria-valuenow', '5')
 
-		test(`Set input step volume`, () => {
-			renderWithRouter(<Config />)
-			const input = screen.getByTestId(testid.inputStepVolume)
-			fireEvent.change(input, { target: { value: 3 } })
-			expect(input).toHaveValue(3)
+			// ArrowRight increases by step (1) → 6
+			fireEvent.keyDown(thumb, { key: 'ArrowRight' })
+			expect(thumb).toHaveAttribute('aria-valuenow', '6')
+
+			// ArrowLeft decreases by step (1) → 5
+			fireEvent.keyDown(thumb, { key: 'ArrowLeft' })
+			expect(thumb).toHaveAttribute('aria-valuenow', '5')
 		})
 	})
 })

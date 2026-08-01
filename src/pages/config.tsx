@@ -1,4 +1,3 @@
-import type { FC } from 'react'
 import { Layout } from '../components/layout'
 import { defaultConfig, useConfig } from '../config/use-config'
 import { testid } from '../constant'
@@ -8,16 +7,14 @@ import { Input } from '../primitives/input'
 import { Label } from '../primitives/label'
 import { Switch } from '../primitives/switch'
 import { H3 } from '../primitives/typography'
+import { VolumeThreshold } from './config/volume-threshold'
 
-export const Config: FC = () => {
+export const Config = () => {
 	const [config, updateConfig] = useConfig()
 
 	const handleChange =
 		(type: keyof typeof config) => (e: React.ChangeEvent<HTMLInputElement>) => {
-			let value: string | number = e.currentTarget.value
-			if (type === 'maxVolume' || type === 'minVolume' || type === 'stepVolume')
-				value = Number(value)
-			updateConfig({ [type]: value })
+			updateConfig({ [type]: e.currentTarget.value })
 		}
 
 	const handleConfigDetect = () => {
@@ -98,33 +95,7 @@ export const Config: FC = () => {
 				</section>
 
 				<section>
-					<H3>Volume threshold</H3>
-					<div className='flex justify-start gap-2'>
-						<Input
-							data-testid={testid.inputMinVolume}
-							label='Min volume'
-							onFocus={e => e.target.select()}
-							value={config.minVolume}
-							type='number'
-							onChange={handleChange('minVolume')}
-						/>
-						<Input
-							data-testid={testid.inputMaxVolume}
-							label='Max volume'
-							onFocus={e => e.target.select()}
-							value={config.maxVolume}
-							type='number'
-							onChange={handleChange('maxVolume')}
-						/>
-						<Input
-							data-testid={testid.inputStepVolume}
-							label='Step volume'
-							onFocus={e => e.target.select()}
-							value={config.stepVolume}
-							type='number'
-							onChange={handleChange('stepVolume')}
-						/>
-					</div>
+					<VolumeThreshold />
 				</section>
 			</div>
 		</Layout>
