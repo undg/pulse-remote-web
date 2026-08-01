@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import { Layout } from '../components/layout'
 import { defaultConfig, useConfig } from '../config/use-config'
-import { testid, def, step, maxVolThreshold } from '../constant'
+import { MAX_VOL_THRESHOLD, STEP_RANGE, testid } from '../constant'
 import { dict } from '../dict'
 import { Button } from '../primitives/button'
 import { Input } from '../primitives/input'
@@ -111,9 +111,9 @@ export const Config: FC = () => {
 							<Slider
 								data-testid={testid.inputMaxVolume}
 								value={[config.maxVolume]}
-								min={maxVolThreshold.min}
-								max={maxVolThreshold.max}
-								step={maxVolThreshold.step}
+								min={MAX_VOL_THRESHOLD.min}
+								max={MAX_VOL_THRESHOLD.max}
+								step={MAX_VOL_THRESHOLD.step}
 								onValueChange={handleMaxVolumeChange}
 							/>
 							<span className='w-10 text-right tabular-nums text-sm'>
@@ -125,8 +125,8 @@ export const Config: FC = () => {
 							<Slider
 								data-testid={testid.inputStepVolume}
 								value={[config.stepVolume]}
-								min={step.min}
-								max={step.max}
+								min={STEP_RANGE.min}
+								max={STEP_RANGE.max}
 								step={1}
 								onValueChange={handleStepVolumeChange}
 							/>

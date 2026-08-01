@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { act } from 'react'
-import { def } from '../constant'
+import { DEF } from '../constant'
 import { useConfig } from './use-config'
 
 describe('useConfig', () => {
@@ -12,9 +12,9 @@ describe('useConfig', () => {
 			port: '8448',
 			endpoint: '/api/v1/ws',
 			serverUrl: 'ws://localhost:8448/api/v1/ws',
-			minVolume: def.MIN_VOLUME,
-			maxVolume: def.MAX_VOLUME,
-			stepVolume: def.VOLUME_STEP,
+			minVolume: DEF.volMin,
+			maxVolume: DEF.volMax,
+			stepVolume: DEF.volStep,
 			showMonitoredSources: true,
 		})
 	})
@@ -36,9 +36,9 @@ describe('useConfig', () => {
 			port: '9000',
 			endpoint: '/api/v1/ws',
 			serverUrl: 'ws://localhost:9000/api/v1/ws',
-			minVolume: def.MIN_VOLUME,
-			maxVolume: def.MAX_VOLUME,
-			stepVolume: def.VOLUME_STEP,
+			minVolume: DEF.volMin,
+			maxVolume: DEF.volMax,
+			stepVolume: DEF.volStep,
 			showMonitoredSources: true,
 		})
 	})
@@ -62,7 +62,7 @@ describe('useConfig', () => {
 			serverUrl: 'ws://localhost:9000/api/v1/ws',
 			minVolume: 69,
 			maxVolume: 50,
-			stepVolume: def.VOLUME_STEP,
+			stepVolume: DEF.volStep,
 			showMonitoredSources: true,
 		})
 	})
@@ -84,9 +84,9 @@ describe('useConfig', () => {
 			port: '9000',
 			endpoint: '/api/v1/ws',
 			serverUrl: 'ws://localhost:9000/api/v1/ws',
-			minVolume: def.MIN_VOLUME,
-			maxVolume: def.MAX_VOLUME,
-			stepVolume: def.VOLUME_STEP,
+			minVolume: DEF.volMin,
+			maxVolume: DEF.volMax,
+			stepVolume: DEF.volStep,
 			showMonitoredSources: true,
 		})
 	})

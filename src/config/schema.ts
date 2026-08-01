@@ -1,17 +1,13 @@
 import { z } from 'zod'
-import { def, maxVolThreshold } from '../constant'
+import { DEF, MAX_VOL_THRESHOLD } from '../constant'
 
 // @TODO (undg) 2024-09-15: I need  two schemas. One for throwing errors, second for UI errors.
 
 export const ConfigSchema = z
 	.object({
-		minVolume: z
-			.number()
-			.min(def.MIN_VOLUME)
-			.max(def.MAX_VOLUME)
-			.catch(def.MIN_VOLUME),
-		maxVolume: z.number().max(maxVolThreshold.max).catch(def.MAX_VOLUME),
-		stepVolume: z.number().catch(def.VOLUME_STEP),
+		minVolume: z.number().min(DEF.volMin).max(DEF.volMax).catch(DEF.volMin),
+		maxVolume: z.number().max(MAX_VOL_THRESHOLD.max).catch(DEF.volMax),
+		stepVolume: z.number().catch(DEF.volStep),
 		hostname: z.string().describe('Server host address').optional(),
 		port: z
 			.string()
