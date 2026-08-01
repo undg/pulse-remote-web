@@ -24,6 +24,7 @@ export const VolumeThreshold = () => {
 					<Slider
 						data-testid={testid.inputMaxVolume}
 						value={[config.maxVolume]}
+						thumbContent={config.maxVolume}
 						min={MAX_VOL_THRESHOLD.min}
 						max={MAX_VOL_THRESHOLD.max}
 						step={MAX_VOL_THRESHOLD.step}
@@ -38,6 +39,7 @@ export const VolumeThreshold = () => {
 					<Slider
 						data-testid={testid.inputStepVolume}
 						value={[config.stepVolume]}
+						thumbContent={[config.stepVolume]}
 						min={STEP_RANGE.min}
 						max={STEP_RANGE.max}
 						step={1}
