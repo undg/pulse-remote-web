@@ -139,7 +139,7 @@ export const VolumeSlider: React.FC<{
 						/>
 					</Toggle>
 				)}
-				<Small className='truncate text-right text-xs'>{props.label}</Small>
+				<Small className='text-right text-xs break-words'>{props.label}</Small>
 			</div>
 			<div className='col-span-2 flex'>
 				<Button
