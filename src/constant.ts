@@ -8,7 +8,6 @@ export const RELEASE_OPTIMISTIC_TIME = 150
  */
 export const def = {
 	VOLUME_STEP: 5,
-	MIN_VOLUME_STEP: 1,
 	/**
 	 * Max volume 150 is 150%. Although you can set it as loud as you like,
 	 * value above 150 (150%) can damage your neighbors,
@@ -16,7 +15,20 @@ export const def = {
 	 */
 	MAX_VOLUME: 150,
 	MIN_VOLUME: 0,
-}
+} as const
+
+/** Slider range for step volume config */
+export const step = {
+	min: 1,
+	max: 10,
+} as const
+
+/** Slider range for max volume threshold config */
+export const maxVolThreshold = {
+	min: 50,
+	max: 200,
+	step: 25,
+} as const
 
 export const testid = {
 	// loading spinner

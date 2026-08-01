@@ -1,11 +1,12 @@
 import type { FC } from 'react'
 import { Layout } from '../components/layout'
 import { defaultConfig, useConfig } from '../config/use-config'
-import { testid } from '../constant'
+import { testid, def, step, maxVolThreshold } from '../constant'
 import { dict } from '../dict'
 import { Button } from '../primitives/button'
 import { Input } from '../primitives/input'
 import { Label } from '../primitives/label'
+import { Slider } from '../primitives/slider'
 import { Switch } from '../primitives/switch'
 import { H3 } from '../primitives/typography'
 
@@ -14,11 +15,16 @@ export const Config: FC = () => {
 
 	const handleChange =
 		(type: keyof typeof config) => (e: React.ChangeEvent<HTMLInputElement>) => {
-			let value: string | number = e.currentTarget.value
-			if (type === 'maxVolume' || type === 'minVolume' || type === 'stepVolume')
-				value = Number(value)
-			updateConfig({ [type]: value })
+			updateConfig({ [type]: e.currentTarget.value })
 		}
+
+	const handleMaxVolumeChange = (value: number[]) => {
+		updateConfig({ maxVolume: value[0] })
+	}
+
+	const handleStepVolumeChange = (value: number[]) => {
+		updateConfig({ stepVolume: value[0] })
+	}
 
 	const handleConfigDetect = () => {
 		updateConfig({
@@ -99,31 +105,35 @@ export const Config: FC = () => {
 
 				<section>
 					<H3>Volume threshold</H3>
-					<div className='flex justify-start gap-2'>
-						<Input
-							data-testid={testid.inputMinVolume}
-							label='Min volume'
-							onFocus={e => e.target.select()}
-							value={config.minVolume}
-							type='number'
-							onChange={handleChange('minVolume')}
-						/>
-						<Input
-							data-testid={testid.inputMaxVolume}
-							label='Max volume'
-							onFocus={e => e.target.select()}
-							value={config.maxVolume}
-							type='number'
-							onChange={handleChange('maxVolume')}
-						/>
-						<Input
-							data-testid={testid.inputStepVolume}
-							label='Step volume'
-							onFocus={e => e.target.select()}
-							value={config.stepVolume}
-							type='number'
-							onChange={handleChange('stepVolume')}
-						/>
+					<div className='flex flex-col gap-4'>
+						<div className='flex items-center gap-2'>
+							<Label className='w-32 shrink-0'>Max volume</Label>
+							<Slider
+								data-testid={testid.inputMaxVolume}
+								value={[config.maxVolume]}
+								min={maxVolThreshold.min}
+								max={maxVolThreshold.max}
+								step={maxVolThreshold.step}
+								onValueChange={handleMaxVolumeChange}
+							/>
+							<span className='w-10 text-right tabular-nums text-sm'>
+								{config.maxVolume}
+							</span>
+						</div>
+						<div className='flex items-center gap-2'>
+							<Label className='w-32 shrink-0'>Step volume</Label>
+							<Slider
+								data-testid={testid.inputStepVolume}
+								value={[config.stepVolume]}
+								min={step.min}
+								max={step.max}
+								step={1}
+								onValueChange={handleStepVolumeChange}
+							/>
+							<span className='w-10 text-right tabular-nums text-sm'>
+								{config.stepVolume}
+							</span>
+						</div>
 					</div>
 				</section>
 			</div>
